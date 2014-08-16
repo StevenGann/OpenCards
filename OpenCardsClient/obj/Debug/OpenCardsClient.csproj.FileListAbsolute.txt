@@ -1,0 +1,24 @@
+c:\users\administrator\documents\visual studio 2013\Projects\OpenCards\OpenCardsClient\bin\Debug\OpenCardsClient.exe.config
+c:\users\administrator\documents\visual studio 2013\Projects\OpenCards\OpenCardsClient\bin\Debug\OpenCardsClient.exe
+c:\users\administrator\documents\visual studio 2013\Projects\OpenCards\OpenCardsClient\bin\Debug\OpenCardsClient.pdb
+c:\users\administrator\documents\visual studio 2013\Projects\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.csprojResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2013\Projects\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.Properties.Resources.resources
+c:\users\administrator\documents\visual studio 2013\Projects\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.csproj.GenerateResource.Cache
+c:\users\administrator\documents\visual studio 2013\Projects\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.exe
+c:\users\administrator\documents\visual studio 2013\Projects\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.pdb
+c:\users\administrator\documents\visual studio 2013\Projects\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.FormClient.resources
+c:\users\administrator\documents\visual studio 2013\Projects\OpenCards\OpenCardsClient\bin\Debug\OpenCards.dll
+c:\users\administrator\documents\visual studio 2013\Projects\OpenCards\OpenCardsClient\bin\Debug\OpenCards.pdb
+c:\users\administrator\documents\visual studio 2013\Projects\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.FormConnect.resources
+C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\bin\Debug\OpenCardsClient.exe.config
+C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.exe
+C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.pdb
+C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\bin\Debug\OpenCardsClient.exe
+C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\bin\Debug\OpenCardsClient.pdb
+C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\bin\Debug\OpenCards.dll
+C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\bin\Debug\OpenCards.pdb
+C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.FormClient.resources
+C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.FormConnect.resources
+C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.Properties.Resources.resources
+C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.csproj.GenerateResource.Cache
