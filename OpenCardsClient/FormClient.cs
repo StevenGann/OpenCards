@@ -78,6 +78,11 @@ namespace OpenCardsClient
             RenderResponses();
         }
 
+        private void FormClient_Load(object sender, EventArgs e)
+        {
+            Application.EnableVisualStyles();
+        }
+
         //====================================================================================
         //Event Handlers
         //------------------------------------------------------------------------------------
@@ -215,6 +220,16 @@ namespace OpenCardsClient
             RenderHand();
             
         }
+
+        private void connectToServerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open the FormConnect window.
+            FormConnect child = new FormConnect();
+            child.Show();
+
+            String username = child.username;
+            MessageBox.Show(username);
+        }
         //====================================================================================
         //GUI Logic Methods
         //------------------------------------------------------------------------------------
@@ -333,6 +348,10 @@ namespace OpenCardsClient
             }
 
         }
+
+        
+
+        
 
         
 

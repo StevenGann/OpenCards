@@ -72,14 +72,15 @@
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectToServerToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
             // connectToServerToolStripMenuItem
             // 
             this.connectToServerToolStripMenuItem.Name = "connectToServerToolStripMenuItem";
-            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.connectToServerToolStripMenuItem.Text = "Connect to Server";
+            this.connectToServerToolStripMenuItem.Click += new System.EventHandler(this.connectToServerToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -94,7 +95,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(64, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(63, 17);
             this.toolStripStatusLabel1.Text = "Status: Idle";
             // 
             // splitContainer1
@@ -237,6 +238,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormClient";
             this.Text = "OpenCards Client";
+            this.Load += new System.EventHandler(this.FormClient_Load);
             this.Resize += new System.EventHandler(this.FormClient_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
