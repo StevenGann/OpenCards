@@ -14,9 +14,6 @@ The design principles are as follows:
 
 To Do:
 
-- Client: Code the rendering of all Responses for the round
-- Client: Manage selection and deselection of Hand Cards, including multiple Cards while preserving order of selection
-- Client: Clean up Card.Render() methods to return a PictureBox instead of a Bitmap
 - Client: Implement TCP communication
 
 - Server: Implement TCP communication
