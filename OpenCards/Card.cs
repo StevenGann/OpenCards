@@ -43,6 +43,13 @@ namespace OpenCards
             if (Selection > 0)
             {
                 Color selectionColor = Color.Blue;
+
+                if (Selection == 2) { selectionColor = Color.Red; }
+                if (Selection == 3) { selectionColor = Color.Green; }
+                if (Selection == 4) { selectionColor = Color.Purple; }
+                if (Selection == 5) { selectionColor = Color.Orange; }
+
+
                 Pen selectionPen = new Pen(selectionColor, 5.0f);
                 SolidBrush selectionBrush = new SolidBrush(selectionColor);
 

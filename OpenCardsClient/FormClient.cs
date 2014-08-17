@@ -136,6 +136,29 @@ namespace OpenCardsClient
             //RenderResponses();
         }
 
+        private void splitContainer3_Panel2_MouseWheel(object sender, MouseEventArgs e)
+        {
+            //MessageBox.Show("Woop");
+        }
+
+        private void splitContainer3_Panel2_MouseEnter(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Entered");
+            if (!splitContainer3.Panel2.Focused)
+            {
+                splitContainer3.Panel2.Focus();
+            }
+        }
+
+        private void splitContainer3_Panel2_MouseLeave(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Left");
+            if (splitContainer3.Panel2.Focused)
+            {
+                splitContainer3.Focus();
+            }
+        }
+
         private void card_Click(object sender, EventArgs e)
         {
             
@@ -287,6 +310,10 @@ namespace OpenCardsClient
             }
 
         }
+
+        
+
+        
 
         //------------------------------------------------------------------------------------
     }
