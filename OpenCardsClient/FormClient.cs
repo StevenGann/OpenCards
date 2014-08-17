@@ -119,6 +119,13 @@ namespace OpenCardsClient
         }
         //------------------------------------------------------------------------------------
 
+        private void FormClient_Resize(object sender, EventArgs e)
+        {
+            RenderHand();
+            RenderBlackCard();
+            RenderResponses();
+        }
+
         //Play Cards button
         private void buttonPlay_Click(object sender, EventArgs e)
         {
@@ -156,6 +163,22 @@ namespace OpenCardsClient
             if (splitContainer3.Panel2.Focused)
             {
                 splitContainer3.Focus();
+            }
+        }
+
+        private void splitContainer2_Panel2_MouseEnter(object sender, EventArgs e)
+        {
+            if (!splitContainer2.Panel2.Focused)
+            {
+                splitContainer2.Panel2.Focus();
+            }
+        }
+
+        private void splitContainer2_Panel2_MouseLeave(object sender, EventArgs e)
+        {
+            if (splitContainer2.Panel2.Focused)
+            {
+                splitContainer2.Focus();
             }
         }
 
@@ -282,7 +305,7 @@ namespace OpenCardsClient
         {
             List<Panel> responsePanels = new List<Panel>();
 
-            int marginH = 4;    //ToDo: Replace these magic numbers with something adjustable.
+            int marginH = 8;    //ToDo: Replace these magic numbers with something adjustable.
             int marginV = 4;
             int newX = marginH;
             int newY = marginV;
@@ -310,6 +333,14 @@ namespace OpenCardsClient
             }
 
         }
+
+        
+
+        
+
+        
+
+        
 
         
 

@@ -28,8 +28,8 @@ namespace OpenCards
         {
             Panel result = new Panel();
 
-            int marginH = 2;    //ToDo: Replace these magic numbers with something adjustable.
-            int marginV = 2;
+            int marginH = 0;    //ToDo: Replace these magic numbers with something adjustable.
+            int marginV = 0;
             int newX = marginH;
             int newY = marginV;
             int width = 168;
