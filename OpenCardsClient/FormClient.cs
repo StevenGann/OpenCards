@@ -108,7 +108,7 @@ namespace OpenCardsClient
         }
 
         //====================================================================================
-        //GUI Logic Method
+        //GUI Logic Methods
         //------------------------------------------------------------------------------------
 
         private void RenderHand()
@@ -124,12 +124,10 @@ namespace OpenCardsClient
 
             foreach (Card card in Hand)
             {
-                PictureBox pb = new PictureBox();               //Make a new PictureBox
-                Bitmap bmp = card.Render(width, height);                     //Render Card to Bitmap
-                pb.Image = bmp;                                 //Put Bitmap into PictureBox
-
+                PictureBox pb = card.Render(width, height);
+                
                 handPictures.Add(pb);
-                //Not sure if I really need to set these.
+                //Not sure if I really need to set these?
                 //pb.Name = "";
                 //pb.TabIndex = 0;
                 //pb.TabStop = false;
@@ -150,8 +148,7 @@ namespace OpenCardsClient
                     newY += (height + marginV);
                 }
 
-                pb.Size = new System.Drawing.Size(width, height);                   
-                pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                
             }
         }
 
@@ -164,17 +161,13 @@ namespace OpenCardsClient
             int width = 168;
             int height = 264;
 
-            PictureBox pb = new PictureBox();
-            Bitmap bmp = status.currentBlack.Render(width, height);
-            pb.Image = bmp;
-
+            PictureBox pb = status.currentBlack.Render(width, height);
+            
             splitContainer2.Panel1.Controls.Clear();
 
             splitContainer2.Panel1.Controls.Add(pb);
 
             pb.Location = new System.Drawing.Point(newX, newY);
-            pb.Size = new System.Drawing.Size(width, height);
-            pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
         }
 
         //------------------------------------------------------------------------------------

@@ -22,3 +22,15 @@ C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClie
 C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.FormConnect.resources
 C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.Properties.Resources.resources
 C:\Users\Administrator\Dropbox\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsClient\bin\Debug\OpenCardsClient.exe.config
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.exe
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.pdb
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.FormClient.resources
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.FormConnect.resources
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.Properties.Resources.resources
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsClient\obj\Debug\OpenCardsClient.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsClient\bin\Debug\OpenCardsClient.exe
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsClient\bin\Debug\OpenCardsClient.pdb
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsClient\bin\Debug\OpenCards.dll
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsClient\bin\Debug\OpenCards.pdb

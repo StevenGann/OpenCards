@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace OpenCards
 {
@@ -24,12 +25,13 @@ namespace OpenCards
         }
 
         //Render Card into a bitmap for displaying in the GUI
-        public Bitmap Render(int width, int height)
+        public PictureBox Render(int width, int height)
         {
-            Bitmap result = new Bitmap(width, height);
+            Bitmap resultBmp = new Bitmap(width, height);
+            PictureBox result = new PictureBox();
 
             //Rendering Code
-            Graphics g = Graphics.FromImage(result);
+            Graphics g = Graphics.FromImage(resultBmp);
             g.SmoothingMode = SmoothingMode.AntiAlias;
             g.InterpolationMode = InterpolationMode.HighQualityBicubic;
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
@@ -44,19 +46,24 @@ namespace OpenCards
 
             g.Flush();
 
+            //Put Bitmap in the PictureBox
+            result.Size = new System.Drawing.Size(resultBmp.Width, resultBmp.Height);
+            result.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            result.Image = resultBmp;
+
             return result;
         }
 
         //Render card with default dimensions. I hate having methods/constructors that HAVE to have arguments. Defaults can save time.
-        public Bitmap Render()
+        public PictureBox Render()
         {
             //Regulation playing cards are 56mm x 88mm
             //I'll make the default dimensions 224px x 352px. This'll make the card downsampled in most cases.
-            Bitmap result = Render(224, 352);
+            PictureBox result = Render(224, 352);
             return result;
         }
 
-        public static void DrawRoundedRectangle(Graphics g, Rectangle r, int d, Pen p)
+        private static void DrawRoundedRectangle(Graphics g, Rectangle r, int d, Pen p)
         {
 
             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();

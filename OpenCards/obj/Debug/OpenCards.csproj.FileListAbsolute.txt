@@ -8,3 +8,8 @@ C:\Users\Administrator\Dropbox\OpenCards\OpenCards\bin\Debug\OpenCards.pdb
 C:\Users\Administrator\Dropbox\OpenCards\OpenCards\obj\Debug\OpenCards.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Dropbox\OpenCards\OpenCards\obj\Debug\OpenCards.dll
 C:\Users\Administrator\Dropbox\OpenCards\OpenCards\obj\Debug\OpenCards.pdb
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCards\bin\Debug\OpenCards.dll
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCards\bin\Debug\OpenCards.pdb
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCards\obj\Debug\OpenCards.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCards\obj\Debug\OpenCards.dll
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCards\obj\Debug\OpenCards.pdb
