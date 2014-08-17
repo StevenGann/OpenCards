@@ -29,6 +29,7 @@ namespace OpenCards
         {
             Bitmap resultBmp = new Bitmap(width, height);
             PictureBox result = new PictureBox();
+            RectangleF rectf = new RectangleF();
 
             //Rendering Code
             Graphics g = Graphics.FromImage(resultBmp);
@@ -38,11 +39,26 @@ namespace OpenCards
 
             DrawRoundedRectangle(g, new Rectangle(1, 1, width-2, height-2), 30, Pens.Black);
 
-            RectangleF rectf = new RectangleF(15, 20, width-30, height-40);//"Formatting Rectangle" - Not sure what this does...
+            //If selected, draw extra colored outline and selection number
+            if (Selection > 0)
+            {
+                Color selectionColor = Color.Blue;
+                Pen selectionPen = new Pen(selectionColor, 5.0f);
+                SolidBrush selectionBrush = new SolidBrush(selectionColor);
+
+                DrawRoundedRectangle(g, new Rectangle(1, 1, width - 2, height - 2), 30, selectionPen);
+
+                rectf = new RectangleF((3 * width) / 4, height-50, width - 30, height - 40);
+                g.DrawString(Convert.ToString(Selection), new Font("Helvetica", 20), selectionBrush, rectf);
+            }
+
+            rectf = new RectangleF(15, 20, width-30, height-40);//"Formatting Rectangle" - Not sure what this does...
             g.DrawString(Text, new Font("Helvetica", 12), Brushes.Black, rectf);
 
             rectf = new RectangleF(15, height - 20, width - 30, height);
             g.DrawString(Source, new Font("Helvetica", 8), Brushes.Black, rectf);
+
+            
 
             g.Flush();
 

@@ -38,11 +38,11 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.dataGridPlayerList = new System.Windows.Forms.DataGridView();
-            this.buttonPlay = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Players = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Scores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Statuses = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonPlay = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -72,13 +72,13 @@
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectToServerToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
             // connectToServerToolStripMenuItem
             // 
             this.connectToServerToolStripMenuItem.Name = "connectToServerToolStripMenuItem";
-            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.connectToServerToolStripMenuItem.Text = "Connect to Server";
             // 
             // statusStrip1
@@ -94,7 +94,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(63, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(64, 17);
             this.toolStripStatusLabel1.Text = "Status: Idle";
             // 
             // splitContainer1
@@ -130,9 +130,10 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.splitContainer2.Panel2.AutoScroll = true;
+            this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.ControlDark;
             this.splitContainer2.Size = new System.Drawing.Size(784, 277);
-            this.splitContainer2.SplitterDistance = 183;
+            this.splitContainer2.SplitterDistance = 209;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer2_SplitterMoved);
             // 
@@ -153,7 +154,7 @@
             this.splitContainer3.Panel2.AutoScroll = true;
             this.splitContainer3.Panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.splitContainer3.Size = new System.Drawing.Size(784, 284);
-            this.splitContainer3.SplitterDistance = 183;
+            this.splitContainer3.SplitterDistance = 210;
             this.splitContainer3.TabIndex = 0;
             this.splitContainer3.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer3_SplitterMoved);
             // 
@@ -174,26 +175,8 @@
             this.dataGridPlayerList.ReadOnly = true;
             this.dataGridPlayerList.RowHeadersVisible = false;
             this.dataGridPlayerList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridPlayerList.Size = new System.Drawing.Size(179, 233);
+            this.dataGridPlayerList.Size = new System.Drawing.Size(206, 233);
             this.dataGridPlayerList.TabIndex = 0;
-            // 
-            // buttonPlay
-            // 
-            this.buttonPlay.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPlay.Location = new System.Drawing.Point(0, 0);
-            this.buttonPlay.Name = "buttonPlay";
-            this.buttonPlay.Size = new System.Drawing.Size(179, 47);
-            this.buttonPlay.TabIndex = 0;
-            this.buttonPlay.Text = "Play Selected Cards";
-            this.buttonPlay.UseVisualStyleBackColor = true;
-            this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Players
             // 
@@ -217,6 +200,23 @@
             this.Statuses.Name = "Statuses";
             this.Statuses.ReadOnly = true;
             this.Statuses.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // buttonPlay
+            // 
+            this.buttonPlay.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlay.Location = new System.Drawing.Point(0, 0);
+            this.buttonPlay.Name = "buttonPlay";
+            this.buttonPlay.Size = new System.Drawing.Size(206, 47);
+            this.buttonPlay.TabIndex = 0;
+            this.buttonPlay.Text = "Play Selected Cards";
+            this.buttonPlay.UseVisualStyleBackColor = true;
+            this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormClient
             // 

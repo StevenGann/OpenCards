@@ -18,6 +18,7 @@ namespace OpenCardsClient
         //------------------------------------------------------------------------------------
         public List<Card> Hand = new List<Card>();
         public List<Response> Responses = new List<Response>();
+        public List<Card> SelectedCards = new List<Card>();
         public GameStatus status = new GameStatus();
         public bool IsCzar = false;
 
@@ -31,6 +32,8 @@ namespace OpenCardsClient
             menuStrip1.Select();
 
             //Debug code to let me test the GUI without having all the network code done.
+            //This is all dummy data for testing rendering.
+            //This data will eventually come from the server.
             Random RNG = new Random();
             /*
             public List<Player> Players = new List<Player>();
@@ -53,8 +56,26 @@ namespace OpenCardsClient
             Hand.Add(new Card("Test Card #6"));
             Hand.Add(new Card("Test Card #7 with abnormally long text to test the Card.Render() method. I hope this works because it seems unlikely that any card is going to be longer than this, but the program should be ready for this. This message is finally too long!"));
 
+            Response newResponse = new Response();
+            newResponse.Add(new Card("Giant Head"));
+            newResponse.Add(new Card("Aspirin"));
+            Responses.Add(newResponse);
+            newResponse = new Response();
+            newResponse.Add(new Card("Aunt"));
+            newResponse.Add(new Card("Humility"));
+            Responses.Add(newResponse);
+            newResponse = new Response();
+            newResponse.Add(new Card("Professor"));
+            newResponse.Add(new Card("Acid"));
+            Responses.Add(newResponse);
+            newResponse = new Response();
+            newResponse.Add(new Card("PC"));
+            newResponse.Add(new Card("GabeN's Love"));
+            Responses.Add(newResponse);
+
             RenderHand();
             RenderBlackCard();
+            RenderResponses();
         }
 
         //====================================================================================
@@ -69,6 +90,8 @@ namespace OpenCardsClient
             }
 
             RenderHand();
+            RenderBlackCard();
+            RenderResponses();
         }
 
         private void splitContainer2_SplitterMoved(object sender, SplitterEventArgs e)
@@ -79,6 +102,8 @@ namespace OpenCardsClient
             }
 
             RenderHand();
+            RenderBlackCard();
+            RenderResponses();
         }
 
         private void splitContainer3_SplitterMoved(object sender, SplitterEventArgs e)
@@ -89,6 +114,8 @@ namespace OpenCardsClient
             }
 
             RenderHand();
+            RenderBlackCard();
+            RenderResponses();
         }
         //------------------------------------------------------------------------------------
 
@@ -101,12 +128,47 @@ namespace OpenCardsClient
         }
 
         //Main Timer Tick
+        //This should function as a heartbeat, and to query the server for an update
         private void timer1_Tick(object sender, EventArgs e)
         {
             //Temporary debug code:
             //RenderHand();
+            //RenderResponses();
         }
 
+        private void card_Click(object sender, EventArgs e)
+        {
+            
+            
+            PictureBox senderPB = (PictureBox)sender;
+            Card clickedCard = Hand[Convert.ToInt32(senderPB.Name)];
+            //MessageBox.Show(Hand[Convert.ToInt32(senderPB.Name)].Text);
+
+            if (clickedCard.Selection > 0)
+            {
+                clickedCard.Selection = 0;
+                SelectedCards.Remove(clickedCard);
+
+                //Iterate through SelectedCards and set their Selection to the appropriate value
+                int index = 0;
+                foreach (Card card in SelectedCards)
+                {
+                    card.Selection = index + 1;
+                    index++;
+                }
+            }
+            else
+            {
+                if (SelectedCards.Count < status.currentBlack.Blanks)
+                {
+                    SelectedCards.Add(clickedCard);
+                    clickedCard.Selection = SelectedCards.Count;
+                }
+            }
+            toolStripStatusLabel1.Text = "SelectedCards.Count = " + Convert.ToString(SelectedCards.Count);
+            RenderHand();
+            
+        }
         //====================================================================================
         //GUI Logic Methods
         //------------------------------------------------------------------------------------
@@ -122,23 +184,25 @@ namespace OpenCardsClient
             int width = 168;
             int height = 264;
 
-            foreach (Card card in Hand)
+            int index = 0;
+
+            foreach (Card card in Hand) //OMG It's like I'm writing plain English!
             {
                 PictureBox pb = card.Render(width, height);
-                
                 handPictures.Add(pb);
-                //Not sure if I really need to set these?
-                //pb.Name = "";
-                //pb.TabIndex = 0;
-                //pb.TabStop = false;
             }
 
             splitContainer3.Panel2.Controls.Clear(); //Clear out the PictureBoxes from the last RenderHand() call.
 
+            index = 0;
+            
             foreach (PictureBox pb in handPictures)
             {
                 splitContainer3.Panel2.Controls.Add(pb);                            //Put Picturebox in the Hand section of the GUI
                 pb.Location = new System.Drawing.Point(newX, newY);                 //Move cards so they don't overlap.
+                pb.Name = Convert.ToString(index);
+
+                index++;
 
                 newX += (width + marginH);
 
@@ -148,7 +212,7 @@ namespace OpenCardsClient
                     newY += (height + marginV);
                 }
 
-                
+                pb.Click += new System.EventHandler(this.card_Click);
             }
         }
 
@@ -160,6 +224,27 @@ namespace OpenCardsClient
             int newY = marginV;
             int width = 168;
             int height = 264;
+            /*
+            float magicRatio = (float)53 / (float)88;
+            float panelRatio = (float)splitContainer2.Panel1.Width / (float)splitContainer2.Panel1.Height;
+
+            if (panelRatio >= magicRatio)//Panel is WIDER than BlackCard, snap to Height
+            {
+                height = splitContainer2.Panel1.Height;
+
+                //mR = w/h
+                //w = mR*h
+                width = (int)(magicRatio * (float)height) - 50;
+            }
+
+            if (panelRatio < magicRatio)//Panel is TALLER thatn BlackCard, snap to Width
+            {
+                width = splitContainer2.Panel1.Width;
+
+                //mR = w/h
+                //h = w/mR
+                height = (int)((float)width / magicRatio) - 50;
+            }*/
 
             PictureBox pb = status.currentBlack.Render(width, height);
             
@@ -168,6 +253,39 @@ namespace OpenCardsClient
             splitContainer2.Panel1.Controls.Add(pb);
 
             pb.Location = new System.Drawing.Point(newX, newY);
+        }
+
+        private void RenderResponses()
+        {
+            List<Panel> responsePanels = new List<Panel>();
+
+            int marginH = 4;    //ToDo: Replace these magic numbers with something adjustable.
+            int marginV = 4;
+            int newX = marginH;
+            int newY = marginV;
+
+            foreach (Response response in Responses)
+            {
+                responsePanels.Add(response.Render());
+            }
+
+            splitContainer2.Panel2.Controls.Clear();
+
+            foreach (Panel panel in responsePanels)
+            {
+                splitContainer2.Panel2.Controls.Add(panel);
+
+                panel.Location = new System.Drawing.Point(newX, newY);                 //Move cards so they don't overlap.
+
+                newX += (panel.Width + marginH);
+
+                if ((newX + panel.Width + marginH) >= splitContainer2.Panel2.Width)
+                {
+                    newX = marginH;
+                    newY += (panel.Height + marginV);
+                }
+            }
+
         }
 
         //------------------------------------------------------------------------------------
