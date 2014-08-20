@@ -1,0 +1,5 @@
+C:\Users\Administrator\Documents\GitHub\OpenCards\Network\bin\Debug\Network.dll
+C:\Users\Administrator\Documents\GitHub\OpenCards\Network\bin\Debug\Network.pdb
+C:\Users\Administrator\Documents\GitHub\OpenCards\Network\obj\Debug\Network.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\OpenCards\Network\obj\Debug\Network.dll
+C:\Users\Administrator\Documents\GitHub\OpenCards\Network\obj\Debug\Network.pdb

@@ -13,8 +13,8 @@ namespace OpenCards
     public class Card
     {
         public String Text = "";
-        public int Selection = 0;
-        public String Source = "Default"; //For cards from boosters, the name of the booster should be here.
+        [NonSerialized] public int Selection = 0;
+        [NonSerialized] public String Source = "Default"; //For cards from boosters, the name of the booster should be here.
 
         public Card()
         { }

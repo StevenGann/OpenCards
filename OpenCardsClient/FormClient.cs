@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenCards;
+using System.Net;
 
 namespace OpenCardsClient
 {
@@ -21,6 +22,9 @@ namespace OpenCardsClient
         public List<Card> SelectedCards = new List<Card>();
         public GameStatus status = new GameStatus();
         public bool IsCzar = false;
+
+        public IPAddress serverIP;
+        public int serverPort = 0;
 
         //====================================================================================
         //Form Constructor
@@ -223,12 +227,10 @@ namespace OpenCardsClient
 
         private void connectToServerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Open the FormConnect window.
-            FormConnect child = new FormConnect();
-            child.Show();
-
-            String username = child.username;
-            MessageBox.Show(username);
+            string rawIP = Microsoft.VisualBasic.Interaction.InputBox("Input the server IP", "Connect to Server", "");
+            serverIP = IPAddress.Parse(rawIP);
+            serverPort = int.Parse(Microsoft.VisualBasic.Interaction.InputBox("Input server port", "Connect to Server", serverPort.ToString()));
+            MessageBox.Show("IP: " + serverIP.ToString() + ":" + serverPort.ToString());
         }
         //====================================================================================
         //GUI Logic Methods

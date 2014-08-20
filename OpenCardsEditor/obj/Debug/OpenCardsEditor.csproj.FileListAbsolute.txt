@@ -15,3 +15,14 @@ C:\Users\Administrator\Dropbox\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEdit
 C:\Users\Administrator\Dropbox\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.csproj.GenerateResource.Cache
 C:\Users\Administrator\Dropbox\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.exe
 C:\Users\Administrator\Dropbox\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.pdb
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\bin\Debug\OpenCardsEditor.exe.config
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\bin\Debug\OpenCardsEditor.exe
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\bin\Debug\OpenCardsEditor.pdb
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\bin\Debug\OpenCards.dll
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\bin\Debug\OpenCards.pdb
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.FormEditor.resources
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.Properties.Resources.resources
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.exe
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.pdb

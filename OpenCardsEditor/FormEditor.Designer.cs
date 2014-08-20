@@ -30,37 +30,37 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.DeckEditor = new System.Windows.Forms.TabPage();
-            this.DecksManager = new System.Windows.Forms.TabPage();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.TextColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BlanksColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DecksManager = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AuthorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VersionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChecksumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.DeckEditor.SuspendLayout();
-            this.DecksManager.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.DecksManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -77,34 +77,13 @@
             // DeckEditor
             // 
             this.DeckEditor.Controls.Add(this.splitContainer1);
-            this.DeckEditor.Location = new System.Drawing.Point(4, 23);
+            this.DeckEditor.Location = new System.Drawing.Point(4, 22);
             this.DeckEditor.Name = "DeckEditor";
             this.DeckEditor.Padding = new System.Windows.Forms.Padding(3);
-            this.DeckEditor.Size = new System.Drawing.Size(784, 522);
+            this.DeckEditor.Size = new System.Drawing.Size(784, 523);
             this.DeckEditor.TabIndex = 0;
             this.DeckEditor.Text = "Deck Editor";
             this.DeckEditor.UseVisualStyleBackColor = true;
-            // 
-            // DecksManager
-            // 
-            this.DecksManager.Controls.Add(this.dataGridView3);
-            this.DecksManager.Location = new System.Drawing.Point(4, 23);
-            this.DecksManager.Name = "DecksManager";
-            this.DecksManager.Padding = new System.Windows.Forms.Padding(3);
-            this.DecksManager.Size = new System.Drawing.Size(784, 522);
-            this.DecksManager.TabIndex = 1;
-            this.DecksManager.Text = "Decks Manager";
-            this.DecksManager.UseVisualStyleBackColor = true;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(792, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // splitContainer1
             // 
@@ -120,7 +99,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(778, 516);
+            this.splitContainer1.Size = new System.Drawing.Size(778, 517);
             this.splitContainer1.SplitterDistance = 379;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -130,21 +109,10 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(375, 512);
+            this.groupBox1.Size = new System.Drawing.Size(375, 513);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "White Cards";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(391, 512);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Black Cards";
             // 
             // dataGridView1
             // 
@@ -155,8 +123,25 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(369, 493);
+            this.dataGridView1.Size = new System.Drawing.Size(369, 494);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(391, 513);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Black Cards";
             // 
             // dataGridView2
             // 
@@ -167,14 +152,8 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 16);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(385, 493);
+            this.dataGridView2.Size = new System.Drawing.Size(385, 494);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
             // 
             // TextColumn
             // 
@@ -190,26 +169,16 @@
             this.BlanksColumn.Name = "BlanksColumn";
             this.BlanksColumn.Width = 64;
             // 
-            // fileToolStripMenuItem
+            // DecksManager
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveDeckToolStripMenuItem,
-            this.newDeckToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // saveDeckToolStripMenuItem
-            // 
-            this.saveDeckToolStripMenuItem.Name = "saveDeckToolStripMenuItem";
-            this.saveDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveDeckToolStripMenuItem.Text = "Save Deck";
-            // 
-            // newDeckToolStripMenuItem
-            // 
-            this.newDeckToolStripMenuItem.Name = "newDeckToolStripMenuItem";
-            this.newDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newDeckToolStripMenuItem.Text = "New Deck";
+            this.DecksManager.Controls.Add(this.dataGridView3);
+            this.DecksManager.Location = new System.Drawing.Point(4, 22);
+            this.DecksManager.Name = "DecksManager";
+            this.DecksManager.Padding = new System.Windows.Forms.Padding(3);
+            this.DecksManager.Size = new System.Drawing.Size(784, 523);
+            this.DecksManager.TabIndex = 1;
+            this.DecksManager.Text = "Decks Manager";
+            this.DecksManager.UseVisualStyleBackColor = true;
             // 
             // dataGridView3
             // 
@@ -222,7 +191,7 @@
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(3, 3);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(778, 516);
+            this.dataGridView3.Size = new System.Drawing.Size(778, 517);
             this.dataGridView3.TabIndex = 0;
             this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
@@ -257,6 +226,38 @@
             this.ChecksumColumn.Name = "ChecksumColumn";
             this.ChecksumColumn.ReadOnly = true;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(792, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveDeckToolStripMenuItem,
+            this.newDeckToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveDeckToolStripMenuItem
+            // 
+            this.saveDeckToolStripMenuItem.Name = "saveDeckToolStripMenuItem";
+            this.saveDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveDeckToolStripMenuItem.Text = "Save Deck";
+            this.saveDeckToolStripMenuItem.Click += new System.EventHandler(this.saveDeckToolStripMenuItem_Click);
+            // 
+            // newDeckToolStripMenuItem
+            // 
+            this.newDeckToolStripMenuItem.Name = "newDeckToolStripMenuItem";
+            this.newDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newDeckToolStripMenuItem.Text = "New Deck";
+            // 
             // FormEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,20 +268,21 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormEditor";
             this.Text = "OpenCards Editor";
+            this.Load += new System.EventHandler(this.FormEditor_Load);
             this.tabControl1.ResumeLayout(false);
             this.DeckEditor.ResumeLayout(false);
-            this.DecksManager.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.DecksManager.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

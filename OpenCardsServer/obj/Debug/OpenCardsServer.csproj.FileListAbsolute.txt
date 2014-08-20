@@ -15,3 +15,12 @@ C:\Users\Administrator\Dropbox\OpenCards\OpenCardsServer\obj\Debug\OpenCardsServ
 C:\Users\Administrator\Dropbox\OpenCards\OpenCardsServer\obj\Debug\OpenCardsServer.csproj.GenerateResource.Cache
 C:\Users\Administrator\Dropbox\OpenCards\OpenCardsServer\obj\Debug\OpenCardsServer.exe
 C:\Users\Administrator\Dropbox\OpenCards\OpenCardsServer\obj\Debug\OpenCardsServer.pdb
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsServer\bin\Debug\OpenCardsServer.exe.config
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsServer\bin\Debug\OpenCardsServer.exe
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsServer\bin\Debug\OpenCardsServer.pdb
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsServer\obj\Debug\OpenCardsServer.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsServer\obj\Debug\OpenCardsServer.FormServer.resources
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsServer\obj\Debug\OpenCardsServer.Properties.Resources.resources
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsServer\obj\Debug\OpenCardsServer.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsServer\obj\Debug\OpenCardsServer.exe
+C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsServer\obj\Debug\OpenCardsServer.pdb
