@@ -39,6 +39,7 @@ To Do:
 - Core: Devise system for maintaining integrity of deck files, i.e. embedded checksum, encrypted merge history [1.1]
 - Core: Add field to deck files to track number of client/server transactions for pollenation modeling [1.2]
 
+- General: Move most of the content from this ReadMe to wiki pages [1.1]
 - General: Finalize log, icon, and Windows Metro tiles [1.1]
 - General: Overhaul use of the OpenCards.dll library to allow selecting game formats by selecting different DLLs [2.0]
 - General: Encapsulate all game rules and definitions entirely within the OpenCards.dll library [2.0]
