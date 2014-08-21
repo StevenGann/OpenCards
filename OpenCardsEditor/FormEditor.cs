@@ -41,14 +41,14 @@ namespace OpenCardsEditor
             currentDeck.Add(newCard);
         }
 
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void saveDeckToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveDeckXML(currentDeck, "test.dek", "C:\\");
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            UpdateWhiteDeck();
         }
 
         //============================================================================================
@@ -60,6 +60,22 @@ namespace OpenCardsEditor
             System.IO.StreamWriter file = new System.IO.StreamWriter(path + filename);
             writer.Serialize(file, deck);
             file.Close();
+        }
+
+        //Update the white cards whenever the UI is edited.
+        public void UpdateWhiteDeck()
+        {
+            string blarg = "";
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    string value = row.Cells[0].Value.ToString();
+                    blarg = blarg + "|" + value;
+                }
+            }
+
+            MessageBox.Show(blarg);
         }
 
         

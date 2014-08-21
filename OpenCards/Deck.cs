@@ -46,5 +46,18 @@ namespace OpenCards
         {
             BlackCards.Add(booster);
         }
+
+        //Remove a white card
+        public void Discard(Card card)
+        {
+            WhiteCards.Remove(card);
+        }
+
+        //Remove a black card
+        public void Discard(BlackCard card)
+        {
+            BlackCards.Remove(card);
+        }
+
     }
 }

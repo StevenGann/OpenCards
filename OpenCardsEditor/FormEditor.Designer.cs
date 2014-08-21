@@ -125,6 +125,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(369, 494);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
             // Column1
             // 
@@ -193,7 +194,6 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(778, 517);
             this.dataGridView3.TabIndex = 0;
-            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
             // NameColumn
             // 
@@ -248,14 +248,14 @@
             // saveDeckToolStripMenuItem
             // 
             this.saveDeckToolStripMenuItem.Name = "saveDeckToolStripMenuItem";
-            this.saveDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveDeckToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.saveDeckToolStripMenuItem.Text = "Save Deck";
             this.saveDeckToolStripMenuItem.Click += new System.EventHandler(this.saveDeckToolStripMenuItem_Click);
             // 
             // newDeckToolStripMenuItem
             // 
             this.newDeckToolStripMenuItem.Name = "newDeckToolStripMenuItem";
-            this.newDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newDeckToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.newDeckToolStripMenuItem.Text = "New Deck";
             // 
             // FormEditor

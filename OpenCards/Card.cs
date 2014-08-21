@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace OpenCards
 {
@@ -13,8 +14,8 @@ namespace OpenCards
     public class Card
     {
         public String Text = "";
-        [NonSerialized] public int Selection = 0;
-        [NonSerialized] public String Source = "Default"; //For cards from boosters, the name of the booster should be here.
+        [XmlIgnore] public int Selection = 0;
+        [XmlIgnore] public String Source = "Default"; //For cards from boosters, the name of the booster should be here.
 
         public Card()
         { }
