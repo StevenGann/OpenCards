@@ -14,7 +14,7 @@ namespace OpenCardsEditor
     public partial class FormEditor : Form
     {
         //Testing data
-        Deck currentDeck = new Deck("Testing Deck");
+        Deck currentDeck = new Deck("");
         
         
 
@@ -27,18 +27,7 @@ namespace OpenCardsEditor
         {
             Card newCard = new Card("Test deck card #1.");
             currentDeck.Add(newCard);
-            newCard = new Card("Test deck card #2.");
-            currentDeck.Add(newCard);
-            newCard = new Card("Test deck card #3.");
-            currentDeck.Add(newCard);
-            newCard = new Card("Test deck card #4.");
-            currentDeck.Add(newCard);
-            newCard = new Card("Test deck card #5.");
-            currentDeck.Add(newCard);
-            newCard = new Card("Test deck card #6.");
-            currentDeck.Add(newCard);
-            newCard = new Card("Test deck card #7.");
-            currentDeck.Add(newCard);
+            
         }
 
         private void saveDeckToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,17 +54,19 @@ namespace OpenCardsEditor
         //Update the white cards whenever the UI is edited.
         public void UpdateWhiteDeck()
         {
-            string blarg = "";
+            currentDeck = new Deck("");
+
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (!row.IsNewRow)
                 {
                     string value = row.Cells[0].Value.ToString();
-                    blarg = blarg + "|" + value;
+                    Card newCard = new Card(value);
+                    currentDeck.Add(newCard);
                 }
             }
 
-            MessageBox.Show(blarg);
+            
         }
 
         

@@ -59,5 +59,24 @@ namespace OpenCards
             BlackCards.Remove(card);
         }
 
+        //empty all cards from the deck
+        public void Clear()
+        {
+            WhiteCards.Clear();
+            BlackCards.Clear();
+        }
+
+        //empty all white cards from the deck
+        public void ClearWhite()
+        {
+            WhiteCards.Clear();
+        }
+
+        //empty all black cards from the deck
+        public void ClearBlack()
+        {
+            BlackCards.Clear();
+        }
+
     }
 }
