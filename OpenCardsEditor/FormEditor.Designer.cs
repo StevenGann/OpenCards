@@ -48,6 +48,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.DeckEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -240,7 +241,8 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveDeckToolStripMenuItem,
-            this.newDeckToolStripMenuItem});
+            this.newDeckToolStripMenuItem,
+            this.loadDeckToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -248,15 +250,22 @@
             // saveDeckToolStripMenuItem
             // 
             this.saveDeckToolStripMenuItem.Name = "saveDeckToolStripMenuItem";
-            this.saveDeckToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.saveDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveDeckToolStripMenuItem.Text = "Save Deck";
             this.saveDeckToolStripMenuItem.Click += new System.EventHandler(this.saveDeckToolStripMenuItem_Click);
             // 
             // newDeckToolStripMenuItem
             // 
             this.newDeckToolStripMenuItem.Name = "newDeckToolStripMenuItem";
-            this.newDeckToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.newDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newDeckToolStripMenuItem.Text = "New Deck";
+            // 
+            // loadDeckToolStripMenuItem
+            // 
+            this.loadDeckToolStripMenuItem.Name = "loadDeckToolStripMenuItem";
+            this.loadDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadDeckToolStripMenuItem.Text = "Load Deck";
+            this.loadDeckToolStripMenuItem.Click += new System.EventHandler(this.loadDeckToolStripMenuItem_Click);
             // 
             // FormEditor
             // 
@@ -310,6 +319,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AuthorColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn VersionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ChecksumColumn;
+        private System.Windows.Forms.ToolStripMenuItem loadDeckToolStripMenuItem;
     }
 }
 

@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace OpenCardsEditor
 {
@@ -40,15 +42,48 @@ namespace OpenCardsEditor
             UpdateWhiteDeck();
         }
 
+        private void loadDeckToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "Deck files (*.dek)|*.dek|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    currentDeck = LoadDeckXML(openFileDialog1.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
+        }
+
         //============================================================================================
 
         public static void SaveDeckXML(Deck deck, String filename, String path) //To Do: Move this to the OpenCards DLL
         {
-            System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(Deck));
+            XmlSerializer writer = new XmlSerializer(typeof(Deck));
 
-            System.IO.StreamWriter file = new System.IO.StreamWriter(path + filename);
+            StreamWriter file = new StreamWriter(path + filename);
             writer.Serialize(file, deck);
             file.Close();
+        }
+
+        public static Deck LoadDeckXML(String filename) //To Do: Move this to the OpenCards DLL
+        {
+            XmlSerializer mySerializer = new XmlSerializer(typeof(Deck));
+
+            FileStream myFileStream = new FileStream(filename, FileMode.Open);
+
+            Deck loadedDeck = (Deck)mySerializer.Deserialize(myFileStream);
+
+            return loadedDeck;
         }
 
         //Update the white cards whenever the UI is edited.
@@ -67,6 +102,12 @@ namespace OpenCardsEditor
             }
 
             
+        }
+
+        public void UpdateWhiteGrid()
+        {
+            //Wipe the whole grid
+            //Add a row for every Card in currentDeck
         }
 
         
