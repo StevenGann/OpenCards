@@ -49,6 +49,13 @@
             this.saveDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.textBoxTitle = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxNumWhite = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxNumBlack = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.DeckEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -62,6 +69,10 @@
             this.DecksManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -77,7 +88,7 @@
             // 
             // DeckEditor
             // 
-            this.DeckEditor.Controls.Add(this.splitContainer1);
+            this.DeckEditor.Controls.Add(this.splitContainer2);
             this.DeckEditor.Location = new System.Drawing.Point(4, 22);
             this.DeckEditor.Name = "DeckEditor";
             this.DeckEditor.Padding = new System.Windows.Forms.Padding(3);
@@ -90,7 +101,7 @@
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -100,7 +111,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(778, 517);
+            this.splitContainer1.Size = new System.Drawing.Size(778, 433);
             this.splitContainer1.SplitterDistance = 379;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -110,7 +121,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(375, 513);
+            this.groupBox1.Size = new System.Drawing.Size(375, 429);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "White Cards";
@@ -124,7 +135,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(369, 494);
+            this.dataGridView1.Size = new System.Drawing.Size(369, 410);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
@@ -140,7 +151,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(391, 513);
+            this.groupBox2.Size = new System.Drawing.Size(391, 429);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Black Cards";
@@ -154,14 +165,16 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 16);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(385, 494);
+            this.dataGridView2.Size = new System.Drawing.Size(385, 410);
             this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellEndEdit);
             // 
             // TextColumn
             // 
             this.TextColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TextColumn.HeaderText = "Text";
             this.TextColumn.Name = "TextColumn";
+            this.TextColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // BlanksColumn
             // 
@@ -169,7 +182,8 @@
             this.BlanksColumn.FillWeight = 10F;
             this.BlanksColumn.HeaderText = "Blanks";
             this.BlanksColumn.Name = "BlanksColumn";
-            this.BlanksColumn.Width = 64;
+            this.BlanksColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.BlanksColumn.Width = 45;
             // 
             // DecksManager
             // 
@@ -250,22 +264,99 @@
             // saveDeckToolStripMenuItem
             // 
             this.saveDeckToolStripMenuItem.Name = "saveDeckToolStripMenuItem";
-            this.saveDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveDeckToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.saveDeckToolStripMenuItem.Text = "Save Deck";
             this.saveDeckToolStripMenuItem.Click += new System.EventHandler(this.saveDeckToolStripMenuItem_Click);
             // 
             // newDeckToolStripMenuItem
             // 
             this.newDeckToolStripMenuItem.Name = "newDeckToolStripMenuItem";
-            this.newDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newDeckToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.newDeckToolStripMenuItem.Text = "New Deck";
+            this.newDeckToolStripMenuItem.Click += new System.EventHandler(this.newDeckToolStripMenuItem_Click);
             // 
             // loadDeckToolStripMenuItem
             // 
             this.loadDeckToolStripMenuItem.Name = "loadDeckToolStripMenuItem";
-            this.loadDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadDeckToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.loadDeckToolStripMenuItem.Text = "Load Deck";
             this.loadDeckToolStripMenuItem.Click += new System.EventHandler(this.loadDeckToolStripMenuItem_Click);
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.label3);
+            this.splitContainer2.Panel1.Controls.Add(this.textBoxNumBlack);
+            this.splitContainer2.Panel1.Controls.Add(this.label2);
+            this.splitContainer2.Panel1.Controls.Add(this.textBoxNumWhite);
+            this.splitContainer2.Panel1.Controls.Add(this.label1);
+            this.splitContainer2.Panel1.Controls.Add(this.textBoxTitle);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.splitContainer1);
+            this.splitContainer2.Size = new System.Drawing.Size(778, 517);
+            this.splitContainer2.SplitterDistance = 80;
+            this.splitContainer2.TabIndex = 1;
+            // 
+            // textBoxTitle
+            // 
+            this.textBoxTitle.Location = new System.Drawing.Point(41, 3);
+            this.textBoxTitle.Name = "textBoxTitle";
+            this.textBoxTitle.Size = new System.Drawing.Size(188, 20);
+            this.textBoxTitle.TabIndex = 0;
+            this.textBoxTitle.Text = "untitled";
+            this.textBoxTitle.TextChanged += new System.EventHandler(this.textBoxTitle_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Title:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "White Cards:";
+            // 
+            // textBoxNumWhite
+            // 
+            this.textBoxNumWhite.Location = new System.Drawing.Point(79, 29);
+            this.textBoxNumWhite.Name = "textBoxNumWhite";
+            this.textBoxNumWhite.ReadOnly = true;
+            this.textBoxNumWhite.Size = new System.Drawing.Size(150, 20);
+            this.textBoxNumWhite.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Black Cards:";
+            // 
+            // textBoxNumBlack
+            // 
+            this.textBoxNumBlack.Location = new System.Drawing.Point(79, 55);
+            this.textBoxNumBlack.Name = "textBoxNumBlack";
+            this.textBoxNumBlack.ReadOnly = true;
+            this.textBoxNumBlack.Size = new System.Drawing.Size(150, 20);
+            this.textBoxNumBlack.TabIndex = 4;
             // 
             // FormEditor
             // 
@@ -274,6 +365,7 @@
             this.ClientSize = new System.Drawing.Size(792, 573);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormEditor";
             this.Text = "OpenCards Editor";
@@ -292,6 +384,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,8 +406,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TextColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BlanksColumn;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveDeckToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newDeckToolStripMenuItem;
@@ -320,6 +415,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn VersionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ChecksumColumn;
         private System.Windows.Forms.ToolStripMenuItem loadDeckToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TextColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BlanksColumn;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxNumBlack;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxNumWhite;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxTitle;
     }
 }
 

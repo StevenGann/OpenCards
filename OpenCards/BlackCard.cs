@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace OpenCards
 {
@@ -13,7 +14,7 @@ namespace OpenCards
     public class BlackCard
     {
         public String Text = "";
-        public String Source = "Default";
+        [XmlIgnore] public String Source = "Default";
         public int Blanks = 1; //The number of cards you can use to respond to this card.
                                //Even if the card has no blanks, this should be 1.
         public BlackCard()
