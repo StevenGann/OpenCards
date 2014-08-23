@@ -10,6 +10,10 @@ namespace OpenCards
     public class Deck
     {
         public String Title = "";
+        public String Version = "";
+        public String Author = "";
+        public String Fingerprint = "";
+        public String MergeChain = "";
         public List<Card> WhiteCards = new List<Card>();
         public List<BlackCard> BlackCards = new List<BlackCard>();
 

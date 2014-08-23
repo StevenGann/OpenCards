@@ -15,9 +15,8 @@ namespace OpenCardsEditor
 {
     public partial class FormEditor : Form
     {
-        //Testing data
         Deck currentDeck = new Deck("untitled");
-        
+        String savePath = "";
         
 
         public FormEditor()
@@ -34,7 +33,49 @@ namespace OpenCardsEditor
 
         private void saveDeckToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveDeckXML(currentDeck, currentDeck.Title + ".dek", "C:\\");
+            //SaveDeckXML(currentDeck, currentDeck.Title + ".dek", "C:\\");
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "Deck files (*.dek)|*.dek|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                SaveDeckXML(currentDeck, saveFileDialog1.FileName);
+                savePath = saveFileDialog1.FileName;
+            }
+        }
+
+        private void FormEditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S)       // Ctrl-S Save
+            {
+                // Bring up save dialog if file hasn't been saved before.
+                // Otherwise save to previous location
+
+                if (savePath == "")
+                {
+                    SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+                    saveFileDialog1.Filter = "Deck files (*.dek)|*.dek|All files (*.*)|*.*";
+                    saveFileDialog1.FilterIndex = 1;
+                    saveFileDialog1.RestoreDirectory = true;
+
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        SaveDeckXML(currentDeck, saveFileDialog1.FileName);
+                        savePath = saveFileDialog1.FileName;
+                    }
+                }
+                else 
+                {
+                    SaveDeckXML(currentDeck, savePath);
+                }
+
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -55,7 +96,7 @@ namespace OpenCardsEditor
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.InitialDirectory = "C:\\";
             openFileDialog1.Filter = "Deck files (*.dek)|*.dek|All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
@@ -89,15 +130,17 @@ namespace OpenCardsEditor
             currentDeck.Title = textBoxTitle.Text;
         }
 
+        
+        
         //============================================================================================
 
-        public static void SaveDeckXML(Deck deck, String filename, String path) //To Do: Move this to the OpenCards DLL
+        public static void SaveDeckXML(Deck deck, String path) //To Do: Move this to the OpenCards DLL
         {
             XmlSerializer writer = new XmlSerializer(typeof(Deck));
 
             try
             {
-                StreamWriter file = new StreamWriter(path + filename);
+                StreamWriter file = new StreamWriter(path);
                 writer.Serialize(file, deck);
                 file.Close();
             }
@@ -198,11 +241,6 @@ namespace OpenCardsEditor
 
             textBoxNumBlack.Text = Convert.ToString(currentDeck.BlackCards.Count);
         }
-
-        
-
-
-        
 
 
 
