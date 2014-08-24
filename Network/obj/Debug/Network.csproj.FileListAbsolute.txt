@@ -3,3 +3,8 @@ C:\Users\Administrator\Documents\GitHub\OpenCards\Network\bin\Debug\Network.pdb
 C:\Users\Administrator\Documents\GitHub\OpenCards\Network\obj\Debug\Network.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\OpenCards\Network\obj\Debug\Network.dll
 C:\Users\Administrator\Documents\GitHub\OpenCards\Network\obj\Debug\Network.pdb
+F:\Git\OpenCards\OpenCards\Network\obj\Debug\Network.csprojResolveAssemblyReference.cache
+F:\Git\OpenCards\OpenCards\Network\obj\Debug\Network.dll
+F:\Git\OpenCards\OpenCards\Network\obj\Debug\Network.pdb
+F:\Git\OpenCards\OpenCards\Network\bin\Debug\Network.dll
+F:\Git\OpenCards\OpenCards\Network\bin\Debug\Network.pdb
