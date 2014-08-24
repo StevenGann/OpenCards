@@ -123,6 +123,8 @@ namespace OpenCardsEditor
             UpdateWhiteGrid();
             UpdateBlackGrid();
             textBoxTitle.Text = "untitled";
+            textBoxVersion.Text = currentDeck.Version;
+            textBoxAuthor.Text = currentDeck.Author;
         }
 
         private void textBoxTitle_TextChanged(object sender, EventArgs e)
@@ -130,7 +132,15 @@ namespace OpenCardsEditor
             currentDeck.Title = textBoxTitle.Text;
         }
 
-        
+        private void textBoxAuthor_TextChanged(object sender, EventArgs e)
+        {
+            currentDeck.Author = textBoxAuthor.Text;
+        }
+
+        private void textBoxVersion_TextChanged(object sender, EventArgs e)
+        {
+            currentDeck.Version = textBoxVersion.Text;
+        }
         
         //============================================================================================
 
@@ -241,6 +251,8 @@ namespace OpenCardsEditor
 
             textBoxNumBlack.Text = Convert.ToString(currentDeck.BlackCards.Count);
         }
+
+        
 
 
 

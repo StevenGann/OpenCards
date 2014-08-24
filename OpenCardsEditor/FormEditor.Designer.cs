@@ -59,7 +59,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxAuthor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxVersion = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.DeckEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -112,7 +112,7 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.label5);
-            this.splitContainer2.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer2.Panel1.Controls.Add(this.textBoxVersion);
             this.splitContainer2.Panel1.Controls.Add(this.label4);
             this.splitContainer2.Panel1.Controls.Add(this.textBoxAuthor);
             this.splitContainer2.Panel1.Controls.Add(this.label3);
@@ -382,6 +382,7 @@
             this.textBoxAuthor.Size = new System.Drawing.Size(188, 20);
             this.textBoxAuthor.TabIndex = 6;
             this.textBoxAuthor.Text = "anonymous";
+            this.textBoxAuthor.TextChanged += new System.EventHandler(this.textBoxAuthor_TextChanged);
             // 
             // label5
             // 
@@ -392,13 +393,14 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Version:";
             // 
-            // textBox1
+            // textBoxVersion
             // 
-            this.textBox1.Location = new System.Drawing.Point(306, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Text = "anonymous";
+            this.textBoxVersion.Location = new System.Drawing.Point(306, 29);
+            this.textBoxVersion.Name = "textBoxVersion";
+            this.textBoxVersion.Size = new System.Drawing.Size(188, 20);
+            this.textBoxVersion.TabIndex = 8;
+            this.textBoxVersion.Text = "1.0";
+            this.textBoxVersion.TextChanged += new System.EventHandler(this.textBoxVersion_TextChanged);
             // 
             // FormEditor
             // 
@@ -470,7 +472,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxAuthor;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxVersion;
     }
 }
 
