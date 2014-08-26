@@ -24,7 +24,7 @@ namespace OpenCards
             Size = Cards.Count;
         }
 
-        public Panel Render()
+        public Panel Render(int width, int height)
         {
             Panel result = new Panel();
 
@@ -32,8 +32,6 @@ namespace OpenCards
             int marginV = 0;
             int newX = marginH;
             int newY = marginV;
-            int width = 168;
-            int height = 264;
             List<PictureBox> pictures = new List<PictureBox>();
 
 

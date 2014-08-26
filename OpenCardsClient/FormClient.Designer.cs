@@ -33,6 +33,9 @@
             this.networkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cardSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBoxCardSize = new System.Windows.Forms.ToolStripComboBox();
+            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -44,9 +47,6 @@
             this.Statuses = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonPlay = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.cardSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripComboBoxCardSize = new System.Windows.Forms.ToolStripComboBox();
-            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -94,6 +94,32 @@
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.optionsToolStripMenuItem.Text = "Options";
+            // 
+            // cardSizeToolStripMenuItem
+            // 
+            this.cardSizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxCardSize,
+            this.customToolStripMenuItem});
+            this.cardSizeToolStripMenuItem.Name = "cardSizeToolStripMenuItem";
+            this.cardSizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cardSizeToolStripMenuItem.Text = "Card Size";
+            // 
+            // toolStripComboBoxCardSize
+            // 
+            this.toolStripComboBoxCardSize.Items.AddRange(new object[] {
+            "Small",
+            "Medium",
+            "Large"});
+            this.toolStripComboBoxCardSize.Name = "toolStripComboBoxCardSize";
+            this.toolStripComboBoxCardSize.Size = new System.Drawing.Size(121, 21);
+            this.toolStripComboBoxCardSize.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxCardSize_SelectedIndexChanged);
+            // 
+            // customToolStripMenuItem
+            // 
+            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.customToolStripMenuItem.Text = "Custom...";
+            this.customToolStripMenuItem.Click += new System.EventHandler(this.customToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -238,31 +264,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // cardSizeToolStripMenuItem
-            // 
-            this.cardSizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBoxCardSize,
-            this.customToolStripMenuItem});
-            this.cardSizeToolStripMenuItem.Name = "cardSizeToolStripMenuItem";
-            this.cardSizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.cardSizeToolStripMenuItem.Text = "Card Size";
-            // 
-            // toolStripComboBoxCardSize
-            // 
-            this.toolStripComboBoxCardSize.Items.AddRange(new object[] {
-            "Small",
-            "Medium",
-            "Large"});
-            this.toolStripComboBoxCardSize.Name = "toolStripComboBoxCardSize";
-            this.toolStripComboBoxCardSize.Size = new System.Drawing.Size(121, 21);
-            this.toolStripComboBoxCardSize.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxCardSize_SelectedIndexChanged);
-            // 
-            // customToolStripMenuItem
-            // 
-            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
-            this.customToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.customToolStripMenuItem.Text = "Custom...";
             // 
             // FormClient
             // 

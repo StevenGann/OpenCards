@@ -26,6 +26,8 @@ namespace OpenCardsClient
         public IPAddress serverIP;
         public int serverPort = 0;
 
+        //Regulation playing cards are 56mm x 88mm
+        //Keep to that ratio.
         int CardWidth = 168;
         int CardHeight = 264;
 
@@ -38,6 +40,7 @@ namespace OpenCardsClient
 
             toolStripComboBoxCardSize.SelectedIndex = 1;
 
+            // Hack to fix the ugly selection lines on the splitters
             menuStrip1.Select();
 
 
@@ -65,7 +68,7 @@ namespace OpenCardsClient
             Hand.Add(new Card("Test Card #2. \nCard #1 had little text."));
             Hand.Add(new Card("Test Card #3. \nThese cards need to test several different lengths of cards."));
             Hand.Add(new Card("Test Card #4. \nSupport for scaling cards with window size is still in the works."));
-            Hand.Add(new Card("Test Card #5. \nFor now, card size is hardcoded, so it must suck to have a high-DPI display."));
+            Hand.Add(new Card("Test Card #5. \nCard size is adjustable under Options. Please test on high and low DPI conditions."));
             Hand.Add(new Card("Test Card #6"));
             Hand.Add(new Card("Test Card #7 with abnormally long text to test the Card.Render() method. I hope this works because it seems unlikely that any card is going to be longer than this, but the program should be ready for this. This message is finally too long!"));
 
@@ -256,12 +259,33 @@ namespace OpenCardsClient
             }
         }
 
+        private void customToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            float scalar = 1.0f;
+            try
+            {
+                scalar = float.Parse(Microsoft.VisualBasic.Interaction.InputBox("Input scale value", "Custom Card Scale", "1.0"));
+            }
+            catch
+            {
+                MessageBox.Show("ERROR: Failed to parse scalar value");
+            }
+
+
+            CardWidth = (int)(168.0f * scalar);
+            CardHeight = (int)(264.0f * scalar);
+
+            RenderHand();
+            RenderBlackCard();
+            RenderResponses();
+        }
+
         private void toolStripComboBoxCardSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (toolStripComboBoxCardSize.SelectedIndex == 0) //Small
             {
-                CardWidth = 168 / 2;
-                CardHeight = 264 / 2;
+                CardWidth = (int)(168.0f / 1.5f); //this seems like the smallest you can make it and still read text.
+                CardHeight = (int)(264.0f / 1.5f);
             }
             if (toolStripComboBoxCardSize.SelectedIndex == 1) //Medium (Default)
             {
@@ -270,8 +294,8 @@ namespace OpenCardsClient
             }
             if (toolStripComboBoxCardSize.SelectedIndex == 2) //Large
             {
-                CardWidth = 168 * 2;
-                CardHeight = 264 * 2;
+                CardWidth = (int)(168.0f * 1.5f);
+                CardHeight = (int)(264.0f * 1.5f);
             }
 
             RenderHand();
@@ -375,7 +399,7 @@ namespace OpenCardsClient
 
             foreach (Response response in Responses)
             {
-                responsePanels.Add(response.Render());
+                responsePanels.Add(response.Render(CardWidth, CardHeight));
             }
 
             splitContainer2.Panel2.Controls.Clear();
@@ -396,6 +420,8 @@ namespace OpenCardsClient
             }
 
         }
+
+        
 
         
         

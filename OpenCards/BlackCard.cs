@@ -44,7 +44,7 @@ namespace OpenCards
             g.InterpolationMode = InterpolationMode.HighQualityBicubic;
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-            DrawRoundedRectangle(g, new Rectangle(1, 1, width - 2, height - 2), 30, Pens.White);
+            DrawRoundedRectangle(g, new Rectangle(1, 1, width - 2, height - 2), (int)(30.0f*scalingFactor), Pens.White);
 
 
             //To Do: A lot of calculations being repeated. Clean this up!
@@ -56,8 +56,13 @@ namespace OpenCards
 
             //Source tag
             rectf = new RectangleF((15.0f * scalingFactor), height - (int)(20.0f * scalingFactor), width - (int)(30.0f * scalingFactor), height);
-            g.DrawString(Source, new Font("Courier New", (int)((float)fontSize * 0.8)), Brushes.White, rectf);
-            
+
+            try
+            {
+                g.DrawString(Source, new Font("Courier New", (int)((float)fontSize * 0.8)), Brushes.White, rectf);
+            }
+            catch { }
+
             g.Flush();
 
             //Put Bitmap in the PictureBox

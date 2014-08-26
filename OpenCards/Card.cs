@@ -55,7 +55,11 @@ namespace OpenCards
 
             //Source tag
             rectf = new RectangleF((15.0f * scalingFactor), height - (int)(20.0f * scalingFactor), width - (int)(30.0f * scalingFactor), height);
-            g.DrawString(Source, new Font("Courier New", (int)((float)fontSize*0.8)), Brushes.Black, rectf);
+            try
+            {
+                g.DrawString(Source, new Font("Courier New", (int)((float)fontSize * 0.8)), Brushes.Black, rectf);
+            }
+            catch { }
 
             //If selected, draw extra colored outline and selection number
             if (Selection > 0)
