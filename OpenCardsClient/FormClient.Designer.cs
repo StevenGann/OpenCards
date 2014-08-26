@@ -30,8 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.networkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -43,6 +44,9 @@
             this.Statuses = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonPlay = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.cardSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBoxCardSize = new System.Windows.Forms.ToolStripComboBox();
+            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -60,6 +64,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.networkToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -67,13 +72,13 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // optionsToolStripMenuItem
+            // networkToolStripMenuItem
             // 
-            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.networkToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectToServerToolStripMenuItem});
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.optionsToolStripMenuItem.Text = "Options";
+            this.networkToolStripMenuItem.Name = "networkToolStripMenuItem";
+            this.networkToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.networkToolStripMenuItem.Text = "Network";
             // 
             // connectToServerToolStripMenuItem
             // 
@@ -81,6 +86,14 @@
             this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.connectToServerToolStripMenuItem.Text = "Connect to Server";
             this.connectToServerToolStripMenuItem.Click += new System.EventHandler(this.connectToServerToolStripMenuItem_Click);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cardSizeToolStripMenuItem});
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.optionsToolStripMenuItem.Text = "Options";
             // 
             // statusStrip1
             // 
@@ -226,6 +239,31 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // cardSizeToolStripMenuItem
+            // 
+            this.cardSizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxCardSize,
+            this.customToolStripMenuItem});
+            this.cardSizeToolStripMenuItem.Name = "cardSizeToolStripMenuItem";
+            this.cardSizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cardSizeToolStripMenuItem.Text = "Card Size";
+            // 
+            // toolStripComboBoxCardSize
+            // 
+            this.toolStripComboBoxCardSize.Items.AddRange(new object[] {
+            "Small",
+            "Medium",
+            "Large"});
+            this.toolStripComboBoxCardSize.Name = "toolStripComboBoxCardSize";
+            this.toolStripComboBoxCardSize.Size = new System.Drawing.Size(121, 21);
+            this.toolStripComboBoxCardSize.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxCardSize_SelectedIndexChanged);
+            // 
+            // customToolStripMenuItem
+            // 
+            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.customToolStripMenuItem.Text = "Custom...";
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,7 +300,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem networkToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
@@ -275,6 +313,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Players;
         private System.Windows.Forms.DataGridViewTextBoxColumn Scores;
         private System.Windows.Forms.DataGridViewTextBoxColumn Statuses;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cardSizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxCardSize;
+        private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
         
 
     }

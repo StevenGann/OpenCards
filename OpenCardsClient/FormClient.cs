@@ -26,6 +26,9 @@ namespace OpenCardsClient
         public IPAddress serverIP;
         public int serverPort = 0;
 
+        int CardWidth = 168;
+        int CardHeight = 264;
+
         //====================================================================================
         //Form Constructor
         //------------------------------------------------------------------------------------
@@ -33,7 +36,13 @@ namespace OpenCardsClient
         {
             InitializeComponent();
 
+            toolStripComboBoxCardSize.SelectedIndex = 1;
+
             menuStrip1.Select();
+
+
+
+
 
             //Debug code to let me test the GUI without having all the network code done.
             //This is all dummy data for testing rendering.
@@ -228,9 +237,46 @@ namespace OpenCardsClient
         private void connectToServerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string rawIP = Microsoft.VisualBasic.Interaction.InputBox("Input the server IP", "Connect to Server", "");
-            serverIP = IPAddress.Parse(rawIP);
-            serverPort = int.Parse(Microsoft.VisualBasic.Interaction.InputBox("Input server port", "Connect to Server", serverPort.ToString()));
-            MessageBox.Show("IP: " + serverIP.ToString() + ":" + serverPort.ToString());
+            try
+            {
+                serverIP = IPAddress.Parse(rawIP);
+                serverPort = int.Parse(Microsoft.VisualBasic.Interaction.InputBox("Input server port", "Connect to Server", serverPort.ToString()));
+                MessageBox.Show("IP: " + serverIP.ToString() + ":" + serverPort.ToString());
+            }
+            catch 
+            {
+                if (rawIP == "")
+                {
+                    MessageBox.Show("ERROR: Empty IP");
+                }
+                else
+                {
+                    MessageBox.Show("ERROR: Failed to parse IP");
+                }
+            }
+        }
+
+        private void toolStripComboBoxCardSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (toolStripComboBoxCardSize.SelectedIndex == 0) //Small
+            {
+                CardWidth = 168 / 2;
+                CardHeight = 264 / 2;
+            }
+            if (toolStripComboBoxCardSize.SelectedIndex == 1) //Medium (Default)
+            {
+                CardWidth = 168;
+                CardHeight = 264;
+            }
+            if (toolStripComboBoxCardSize.SelectedIndex == 2) //Large
+            {
+                CardWidth = 168 * 2;
+                CardHeight = 264 * 2;
+            }
+
+            RenderHand();
+            RenderBlackCard();
+            RenderResponses();
         }
         //====================================================================================
         //GUI Logic Methods
@@ -244,14 +290,13 @@ namespace OpenCardsClient
             int marginV = 4;
             int newX = marginH;
             int newY = marginV;
-            int width = 168;
-            int height = 264;
+            
 
             int index = 0;
 
             foreach (Card card in Hand) //OMG It's like I'm writing plain English!
             {
-                PictureBox pb = card.Render(width, height);
+                PictureBox pb = card.Render(CardWidth, CardHeight);
                 handPictures.Add(pb);
             }
 
@@ -267,12 +312,12 @@ namespace OpenCardsClient
 
                 index++;
 
-                newX += (width + marginH);
+                newX += (CardWidth + marginH);
 
-                if ((newX + width + marginH) >= splitContainer3.Panel2.Width)
+                if ((newX + CardWidth + marginH) >= splitContainer3.Panel2.Width)
                 {
                     newX = marginH;
-                    newY += (height + marginV);
+                    newY += (CardHeight + marginV);
                 }
 
                 pb.Click += new System.EventHandler(this.card_Click);
@@ -285,8 +330,9 @@ namespace OpenCardsClient
             int marginV = 4;
             int newX = marginH;
             int newY = marginV;
-            int width = 168;
-            int height = 264;
+
+            //Attempted to make cards dynamically scale with the size of the panel they're in.
+            //It looks awful and doesn't work.
             /*
             float magicRatio = (float)53 / (float)88;
             float panelRatio = (float)splitContainer2.Panel1.Width / (float)splitContainer2.Panel1.Height;
@@ -309,7 +355,7 @@ namespace OpenCardsClient
                 height = (int)((float)width / magicRatio) - 50;
             }*/
 
-            PictureBox pb = status.currentBlack.Render(width, height);
+            PictureBox pb = status.currentBlack.Render(CardWidth, CardHeight);
             
             splitContainer2.Panel1.Controls.Clear();
 
@@ -351,6 +397,7 @@ namespace OpenCardsClient
 
         }
 
+        
         
 
         
