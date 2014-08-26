@@ -31,6 +31,12 @@ namespace OpenCards
         {
             Bitmap resultBmp = new Bitmap(width, height);
             PictureBox result = new PictureBox();
+            RectangleF rectf = new RectangleF();
+
+            int fontSize = 12;
+            int sizeFactor = 168; //The default width
+            float scalingFactor = ((float)width / (float)sizeFactor);
+            fontSize = (int)((float)fontSize * scalingFactor);
 
             //Rendering Code
             Graphics g = Graphics.FromImage(resultBmp);
@@ -40,12 +46,18 @@ namespace OpenCards
 
             DrawRoundedRectangle(g, new Rectangle(1, 1, width - 2, height - 2), 30, Pens.White);
 
-            RectangleF rectf = new RectangleF(15, 20, width - 30, height - 40);//"Formatting Rectangle" - Not sure what this does...
-            g.DrawString(Text, new Font("Helvetica", 15), Brushes.White, rectf);
 
-            rectf = new RectangleF(15, height - 20, width - 30, height);
-            g.DrawString(Source, new Font("Helvetica", 8), Brushes.White, rectf);
+            //To Do: A lot of calculations being repeated. Clean this up!
+            //       Replace these calculations with margins and H/W values that are only calculated once.
 
+            //Text of the card
+            rectf = new RectangleF((15.0f * scalingFactor), (20.0f * scalingFactor), width - (int)(30.0f * scalingFactor), height - (int)(40.0f * scalingFactor));
+            g.DrawString(Text, new Font("Helvetica", fontSize), Brushes.White, rectf);
+
+            //Source tag
+            rectf = new RectangleF((15.0f * scalingFactor), height - (int)(20.0f * scalingFactor), width - (int)(30.0f * scalingFactor), height);
+            g.DrawString(Source, new Font("Courier New", (int)((float)fontSize * 0.8)), Brushes.White, rectf);
+            
             g.Flush();
 
             //Put Bitmap in the PictureBox
