@@ -17,7 +17,7 @@ namespace OpenCardsEditor
     {
         Deck currentDeck = new Deck("untitled");
         String savePath = "";
-        
+        String deckPath = "";
 
         public FormEditor()
         {
@@ -26,9 +26,7 @@ namespace OpenCardsEditor
 
         private void FormEditor_Load(object sender, EventArgs e)
         {
-            Card newCard = new Card("Test deck card #1.");
-            currentDeck.Add(newCard);
-            
+            GetDirectory();
         }
 
         private void saveDeckToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,6 +37,8 @@ namespace OpenCardsEditor
 
             saveFileDialog1.Filter = "Deck files (*.dek)|*.dek|All files (*.*)|*.*";
             saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.InitialDirectory = deckPath;
+            saveFileDialog1.AutoUpgradeEnabled = true;
             saveFileDialog1.RestoreDirectory = true;
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -61,6 +61,7 @@ namespace OpenCardsEditor
 
                     saveFileDialog1.Filter = "Deck files (*.dek)|*.dek|All files (*.*)|*.*";
                     saveFileDialog1.FilterIndex = 1;
+                    saveFileDialog1.InitialDirectory = deckPath;
                     saveFileDialog1.RestoreDirectory = true;
 
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -96,10 +97,11 @@ namespace OpenCardsEditor
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-            openFileDialog1.InitialDirectory = "C:\\";
+            openFileDialog1.InitialDirectory = deckPath;
             openFileDialog1.Filter = "Deck files (*.dek)|*.dek|All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.AutoUpgradeEnabled = false;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -252,8 +254,19 @@ namespace OpenCardsEditor
             textBoxNumBlack.Text = Convert.ToString(currentDeck.BlackCards.Count);
         }
 
-        
+        //Shared deck directory stuff
+        public void GetDirectory()
+        {
+            //Check if the OpenCards directory exists
+            deckPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\OpenCards\\Decks";
+            if (!Directory.Exists(deckPath))
+            {
+                //If not, create it
+                Directory.CreateDirectory(deckPath);
+            }
 
+            
+        }
 
 
 
