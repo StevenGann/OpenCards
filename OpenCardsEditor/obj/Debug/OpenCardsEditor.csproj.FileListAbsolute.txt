@@ -26,3 +26,6 @@ C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\obj\Debug\Open
 C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.exe
 C:\Users\Administrator\Documents\GitHub\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.pdb
+F:\Git\OpenCards\OpenCards\OpenCardsEditor\bin\Debug\OpenCardsEditor.exe.config
+F:\Git\OpenCards\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.exe
+F:\Git\OpenCards\OpenCards\OpenCardsEditor\obj\Debug\OpenCardsEditor.pdb

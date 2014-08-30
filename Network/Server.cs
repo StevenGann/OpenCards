@@ -1,10 +1,12 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Net.Sockets;
 using System.Net;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Network
 {
@@ -12,7 +14,7 @@ namespace Network
     {
         private TcpListener ConnectionListenter;
         private Thread ListenerThread;
-        List<TcpClient> Clients = new List<TcpClient>();
+        List<Object> Messages = new List<Object>();
 
         //Simple constructor that creates a listener then assigns that listener to a thread
         public Server(IPAddress Address, int Port)
@@ -29,37 +31,35 @@ namespace Network
             while(true)
             {
                 TcpClient Client = this.ConnectionListenter.AcceptTcpClient();
-
-                Clients.Add(Client);
-                Thread clientThread = new Thread(new ParameterizedThreadStart(HandleMessage));
+                Thread ClientThread = new Thread(new ParameterizedThreadStart(GetMessage));
             }
         }
-        private void HandleMessage(object client)
+
+        private void GetMessage(object client)
         {
             TcpClient Client = (TcpClient)client;
-            NetworkStream Stream = Client.GetStream();
+            NetworkStream NetStream = Client.GetStream();
+            int DataRead = 0;
 
-            byte[] message = new byte[4096];
-            int BytesRead;
+            // Read four byte int of the size of the full message
+            byte[] IncMessLength = new byte[4];
+            NetStream.Read(IncMessLength, 0, 4); 
 
-            while(true)
-            {
-                BytesRead = 0;
-
-                try
-                {
-                    BytesRead = Stream.Read(message, 0, 4096);
-                }
-                catch { break; } //Socket error
-
-                if(BytesRead == 0) //Disconnect
-                {
-                    Clients.Remove(Client);
-                    break;
-                }
-
-                //Deserialize message here
-            }
+            // Read the message
+            int MsgLength = BitConverter.ToInt32(IncMessLength, 0);
+            Byte[] IncMessage = new byte[MsgLength];
+            // This reads until it gets the whole message if it arrives in pieces
+            do {
+                DataRead += NetStream.Read(IncMessage, 0, MsgLength - DataRead);
+            }while(DataRead < MsgLength);
+            
+            //Deserialize message
+            MemoryStream MemStream = new MemoryStream();
+            BinaryFormatter BinForm = new BinaryFormatter();
+            MemStream.Write(IncMessage, 0, IncMessage.Length);
+            Object Message = (Object) BinForm.Deserialize(MemStream);
+            Messages.Add(Message);
+            
         }
 
     }
