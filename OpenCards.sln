@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCardsServer", "OpenCardsServer\OpenCardsServer.csproj", "{08FC665F-8C54-4CA3-B063-58D8A8CA98E6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4926186F-0A4D-4E46-BD35-6509D1C7D5A2} = {4926186F-0A4D-4E46-BD35-6509D1C7D5A2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCardsClient", "OpenCardsClient\OpenCardsClient.csproj", "{EC5049D6-EA26-4C1F-B042-15FFAF7F7A6B}"
 EndProject
@@ -12,6 +15,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCards", "OpenCards\OpenCards.csproj", "{4926186F-0A4D-4E46-BD35-6509D1C7D5A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Network", "Network\Network.csproj", "{23184529-E81B-4379-8054-664C4ADF1621}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4926186F-0A4D-4E46-BD35-6509D1C7D5A2} = {4926186F-0A4D-4E46-BD35-6509D1C7D5A2}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
