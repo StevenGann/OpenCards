@@ -31,6 +31,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.DeckEditor = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxVersion = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxAuthor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxNumBlack = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,10 +60,7 @@
             this.saveDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxAuthor = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxVersion = new System.Windows.Forms.TextBox();
+            this.addDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.DeckEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -93,10 +94,10 @@
             // DeckEditor
             // 
             this.DeckEditor.Controls.Add(this.splitContainer2);
-            this.DeckEditor.Location = new System.Drawing.Point(4, 22);
+            this.DeckEditor.Location = new System.Drawing.Point(4, 23);
             this.DeckEditor.Name = "DeckEditor";
             this.DeckEditor.Padding = new System.Windows.Forms.Padding(3);
-            this.DeckEditor.Size = new System.Drawing.Size(784, 523);
+            this.DeckEditor.Size = new System.Drawing.Size(784, 522);
             this.DeckEditor.TabIndex = 0;
             this.DeckEditor.Text = "Deck Editor";
             this.DeckEditor.UseVisualStyleBackColor = true;
@@ -125,9 +126,45 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer1);
-            this.splitContainer2.Size = new System.Drawing.Size(778, 517);
+            this.splitContainer2.Size = new System.Drawing.Size(778, 516);
             this.splitContainer2.SplitterDistance = 80;
             this.splitContainer2.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(255, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Version:";
+            // 
+            // textBoxVersion
+            // 
+            this.textBoxVersion.Location = new System.Drawing.Point(306, 29);
+            this.textBoxVersion.Name = "textBoxVersion";
+            this.textBoxVersion.Size = new System.Drawing.Size(188, 20);
+            this.textBoxVersion.TabIndex = 8;
+            this.textBoxVersion.Text = "1.0";
+            this.textBoxVersion.TextChanged += new System.EventHandler(this.textBoxVersion_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(259, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Author:";
+            // 
+            // textBoxAuthor
+            // 
+            this.textBoxAuthor.Location = new System.Drawing.Point(306, 3);
+            this.textBoxAuthor.Name = "textBoxAuthor";
+            this.textBoxAuthor.Size = new System.Drawing.Size(188, 20);
+            this.textBoxAuthor.TabIndex = 6;
+            this.textBoxAuthor.Text = "anonymous";
+            this.textBoxAuthor.TextChanged += new System.EventHandler(this.textBoxAuthor_TextChanged);
             // 
             // label3
             // 
@@ -195,7 +232,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(778, 433);
+            this.splitContainer1.Size = new System.Drawing.Size(778, 432);
             this.splitContainer1.SplitterDistance = 379;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -205,7 +242,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(375, 429);
+            this.groupBox1.Size = new System.Drawing.Size(375, 428);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "White Cards";
@@ -219,7 +256,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(369, 410);
+            this.dataGridView1.Size = new System.Drawing.Size(369, 409);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
@@ -235,7 +272,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(391, 429);
+            this.groupBox2.Size = new System.Drawing.Size(391, 428);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Black Cards";
@@ -249,7 +286,7 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 16);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(385, 410);
+            this.dataGridView2.Size = new System.Drawing.Size(385, 409);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellEndEdit);
             // 
@@ -272,10 +309,10 @@
             // DecksManager
             // 
             this.DecksManager.Controls.Add(this.dataGridView3);
-            this.DecksManager.Location = new System.Drawing.Point(4, 22);
+            this.DecksManager.Location = new System.Drawing.Point(4, 23);
             this.DecksManager.Name = "DecksManager";
             this.DecksManager.Padding = new System.Windows.Forms.Padding(3);
-            this.DecksManager.Size = new System.Drawing.Size(784, 523);
+            this.DecksManager.Size = new System.Drawing.Size(784, 522);
             this.DecksManager.TabIndex = 1;
             this.DecksManager.Text = "Decks Manager";
             this.DecksManager.UseVisualStyleBackColor = true;
@@ -291,7 +328,7 @@
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(3, 3);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(778, 517);
+            this.dataGridView3.Size = new System.Drawing.Size(778, 516);
             this.dataGridView3.TabIndex = 0;
             // 
             // NameColumn
@@ -340,70 +377,43 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveDeckToolStripMenuItem,
             this.newDeckToolStripMenuItem,
-            this.loadDeckToolStripMenuItem});
+            this.loadDeckToolStripMenuItem,
+            this.addDeckToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // saveDeckToolStripMenuItem
             // 
             this.saveDeckToolStripMenuItem.Name = "saveDeckToolStripMenuItem";
-            this.saveDeckToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.saveDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveDeckToolStripMenuItem.Text = "Save Deck";
             this.saveDeckToolStripMenuItem.Click += new System.EventHandler(this.saveDeckToolStripMenuItem_Click);
             // 
             // newDeckToolStripMenuItem
             // 
             this.newDeckToolStripMenuItem.Name = "newDeckToolStripMenuItem";
-            this.newDeckToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.newDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newDeckToolStripMenuItem.Text = "New Deck";
             this.newDeckToolStripMenuItem.Click += new System.EventHandler(this.newDeckToolStripMenuItem_Click);
             // 
             // loadDeckToolStripMenuItem
             // 
             this.loadDeckToolStripMenuItem.Name = "loadDeckToolStripMenuItem";
-            this.loadDeckToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.loadDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadDeckToolStripMenuItem.Text = "Load Deck";
             this.loadDeckToolStripMenuItem.Click += new System.EventHandler(this.loadDeckToolStripMenuItem_Click);
             // 
-            // label4
+            // addDeckToolStripMenuItem
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(259, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Author:";
-            // 
-            // textBoxAuthor
-            // 
-            this.textBoxAuthor.Location = new System.Drawing.Point(306, 3);
-            this.textBoxAuthor.Name = "textBoxAuthor";
-            this.textBoxAuthor.Size = new System.Drawing.Size(188, 20);
-            this.textBoxAuthor.TabIndex = 6;
-            this.textBoxAuthor.Text = "anonymous";
-            this.textBoxAuthor.TextChanged += new System.EventHandler(this.textBoxAuthor_TextChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(255, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Version:";
-            // 
-            // textBoxVersion
-            // 
-            this.textBoxVersion.Location = new System.Drawing.Point(306, 29);
-            this.textBoxVersion.Name = "textBoxVersion";
-            this.textBoxVersion.Size = new System.Drawing.Size(188, 20);
-            this.textBoxVersion.TabIndex = 8;
-            this.textBoxVersion.Text = "1.0";
-            this.textBoxVersion.TextChanged += new System.EventHandler(this.textBoxVersion_TextChanged);
+            this.addDeckToolStripMenuItem.Name = "addDeckToolStripMenuItem";
+            this.addDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addDeckToolStripMenuItem.Text = "Add Deck";
+            this.addDeckToolStripMenuItem.Click += new System.EventHandler(this.addDeckToolStripMenuItem_Click);
             // 
             // FormEditor
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 573);
@@ -414,6 +424,8 @@
             this.Name = "FormEditor";
             this.Text = "OpenCards Editor";
             this.Load += new System.EventHandler(this.FormEditor_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormEditor_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormEditor_DragEnter);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormEditor_KeyDown);
             this.tabControl1.ResumeLayout(false);
             this.DeckEditor.ResumeLayout(false);
@@ -473,6 +485,7 @@
         private System.Windows.Forms.TextBox textBoxAuthor;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxVersion;
+        private System.Windows.Forms.ToolStripMenuItem addDeckToolStripMenuItem;
     }
 }
 

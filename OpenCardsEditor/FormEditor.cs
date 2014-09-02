@@ -129,6 +129,32 @@ namespace OpenCardsEditor
             textBoxAuthor.Text = currentDeck.Author;
         }
 
+        private void addDeckToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = deckPath;
+            openFileDialog1.Filter = "Deck files (*.dek)|*.dek|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.AutoUpgradeEnabled = false;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    Deck newDeck = LoadDeckXML(openFileDialog1.FileName);
+                    currentDeck.Add(newDeck);
+                    UpdateWhiteGrid();
+                    UpdateBlackGrid();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
+        }
+
         private void textBoxTitle_TextChanged(object sender, EventArgs e)
         {
             currentDeck.Title = textBoxTitle.Text;
@@ -143,7 +169,28 @@ namespace OpenCardsEditor
         {
             currentDeck.Version = textBoxVersion.Text;
         }
-        
+
+        private void FormEditor_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            foreach (string file in files)
+            {
+                Deck newDeck = LoadDeckXML(file);
+                currentDeck.Add(newDeck);
+                UpdateWhiteGrid();
+                UpdateBlackGrid();
+            }
+        }
+
+        private void FormEditor_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+        }
+
+
         //============================================================================================
 
         public static void SaveDeckXML(Deck deck, String path) //To Do: Move this to the OpenCards DLL
@@ -169,6 +216,8 @@ namespace OpenCardsEditor
             FileStream myFileStream = new FileStream(filename, FileMode.Open);
 
             Deck loadedDeck = (Deck)mySerializer.Deserialize(myFileStream);
+
+            myFileStream.Close();
 
             return loadedDeck;
         }
@@ -267,6 +316,9 @@ namespace OpenCardsEditor
 
             
         }
+
+        
+        
 
 
 
