@@ -27,6 +27,15 @@ namespace OpenCardsEditor
         private void FormEditor_Load(object sender, EventArgs e)
         {
             GetDirectory();
+
+            string[] args = Environment.GetCommandLineArgs();
+            if (args[1] != null)
+            {
+                currentDeck = LoadDeckXML(args[1]);
+                UpdateWhiteGrid();
+                UpdateBlackGrid();
+                textBoxTitle.Text = currentDeck.Title;
+            }
         }
 
         private void saveDeckToolStripMenuItem_Click(object sender, EventArgs e)
@@ -214,8 +223,15 @@ namespace OpenCardsEditor
             XmlSerializer mySerializer = new XmlSerializer(typeof(Deck));
 
             FileStream myFileStream = new FileStream(filename, FileMode.Open);
-
-            Deck loadedDeck = (Deck)mySerializer.Deserialize(myFileStream);
+            Deck loadedDeck = new Deck();
+            try
+            {
+                loadedDeck = (Deck)mySerializer.Deserialize(myFileStream);
+            }
+            catch
+            {
+                MessageBox.Show("Error opening file. Is it a valid deck?");
+            }
 
             myFileStream.Close();
 
