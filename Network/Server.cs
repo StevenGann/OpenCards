@@ -17,6 +17,7 @@ namespace Network
         private List<Object> Messages = new List<Object>();
         private List<TcpClient> Clients = new List<TcpClient>();
         private List<TcpClient> LiveClients = new List<TcpClient>();
+        private Boolean IsPinging = false;
 
         //Simple constructor that creates a listener then assigns that listener to a thread
         public Server(IPAddress Address, int Port)
@@ -68,7 +69,14 @@ namespace Network
                 }
                 else if (BytesRead == 4)
                 {
-                    LiveClients.Add(Client);
+                    if(IsPinging)
+                    {
+                        LiveClients.Add(Client);
+                    }
+                    else
+                    {
+                        Ping((TcpClient)client);
+                    }
                 }
 
                 DeserializeMessage(Message);
@@ -113,11 +121,13 @@ namespace Network
         // Check if all players are still connected and remove them if not
         public List<TcpClient> IsConnected(List<TcpClient> Clients)
         {
+            IsPinging = true;
             for (int i = 0; i <= Clients.Count; i++)
             {
                 Ping(Clients[i]);
             }
             Thread.Sleep(350);
+            IsPinging = false;
             return LiveClients;
         }
 
@@ -133,7 +143,6 @@ namespace Network
         // Deserialize a message
         private void DeserializeMessage(Byte[] Message)
         {
-            int DataRead = 0;
             int MessageLength = BitConverter.ToInt32(Message, 0);
 
             if (MessageLength == -1)

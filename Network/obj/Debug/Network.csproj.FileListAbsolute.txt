@@ -8,3 +8,8 @@ F:\Git\OpenCards\OpenCards\Network\obj\Debug\Network.dll
 F:\Git\OpenCards\OpenCards\Network\obj\Debug\Network.pdb
 F:\Git\OpenCards\OpenCards\Network\bin\Debug\Network.dll
 F:\Git\OpenCards\OpenCards\Network\bin\Debug\Network.pdb
+F:\Git\OpenCards\Network\obj\Debug\Network.csprojResolveAssemblyReference.cache
+F:\Git\OpenCards\Network\obj\Debug\Network.dll
+F:\Git\OpenCards\Network\obj\Debug\Network.pdb
+F:\Git\OpenCards\Network\bin\Debug\Network.dll
+F:\Git\OpenCards\Network\bin\Debug\Network.pdb
