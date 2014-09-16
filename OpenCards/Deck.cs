@@ -16,7 +16,7 @@ namespace OpenCards
         public String MergeChain = "";
         public List<Card> WhiteCards = new List<Card>();
         public List<BlackCard> BlackCards = new List<BlackCard>();
-
+        public List<String> MergedTitles = new List<String>();
         
         public Deck()
         { }
@@ -31,6 +31,7 @@ namespace OpenCards
         {
             WhiteCards.AddRange(booster.WhiteCards);
             BlackCards.AddRange(booster.BlackCards);
+            MergedTitles.Add(booster.Title);
         }
 
         public void Add(Deck booster, String newTitle)
