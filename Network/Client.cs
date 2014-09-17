@@ -16,7 +16,7 @@ namespace Network
         private TcpClient Server;
         private Thread ListenerThread;
         private Boolean ConnectionState;
-        private Boolean IsPinging = false;
+        private Boolean Pinging = false;
 
         // Constructor to start the message listener in its own thread
         public Client(IPAddress Address, int Port)
@@ -53,7 +53,7 @@ namespace Network
                 }
                 else if (BytesRead == 4)
                 {
-                    if (IsPinging)
+                    if (Pinging)
                     {
                         ConnectionState = true;
                     }
@@ -104,18 +104,38 @@ namespace Network
             Messages.Add(MessageObj);
         }
 
+        // Get the most recent message
+        public Object GetMessage()
+        {
+            if (Messages.Count != 0)
+            {
+                Object Message = Messages[0];
+                Messages.RemoveAt(0);
+                return Message;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         //Ping the server
         private Boolean Ping()
         {
             NetworkStream NetStream = new NetworkStream(Server.Client);
-            IsPinging = true;
+            Pinging = true;
 
             byte[] Ping = BitConverter.GetBytes(-1);
             NetStream.Write(Ping, 0, Ping.Length);
             Thread.Sleep(300);
 
-            IsPinging = false;
+            Pinging = false;
             return IsConnected();
+        }
+
+        public Boolean IsPinging()
+        {
+            return Pinging;
         }
 
         // Check connection status

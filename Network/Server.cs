@@ -17,7 +17,7 @@ namespace Network
         private List<Object> Messages = new List<Object>();
         private List<TcpClient> Clients = new List<TcpClient>();
         private List<TcpClient> LiveClients = new List<TcpClient>();
-        private Boolean IsPinging = false;
+        private Boolean Pinging = false;
 
         //Simple constructor that creates a listener then assigns that listener to a thread
         public Server(IPAddress Address, int Port)
@@ -69,7 +69,7 @@ namespace Network
                 }
                 else if (BytesRead == 4)
                 {
-                    if(IsPinging)
+                    if(Pinging)
                     {
                         LiveClients.Add(Client);
                     }
@@ -104,30 +104,44 @@ namespace Network
         // Get the most recent message
         public Object GetMessage()
         {
-            Object Message = Messages[0];
-            Messages.RemoveAt(0);
-            return Message;
+            if (Messages.Count != 0)
+            {
+                Object Message = Messages[0];
+                Messages.RemoveAt(0);
+                return Message;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         // Get the most recent connection
         // Should be invoked whenever a player connection is found
-        public TcpClient GetPlayerConnection()
+        public TcpClient GetConnectedPlayer()
         {
-            TcpClient Client = Clients[0];
-            Clients.RemoveAt(0);
-            return Client;
+            if (Clients.Count != 0)
+            {
+                TcpClient Client = Clients[0];
+                Clients.RemoveAt(0);
+                return Client;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         // Check if all players are still connected and remove them if not
         public List<TcpClient> IsConnected(List<TcpClient> Clients)
         {
-            IsPinging = true;
+            Pinging = true;
             for (int i = 0; i <= Clients.Count; i++)
             {
                 Ping(Clients[i]);
             }
             Thread.Sleep(350);
-            IsPinging = false;
+            Pinging = false;
             return LiveClients;
         }
 
@@ -138,6 +152,11 @@ namespace Network
 
             byte[] Ping = BitConverter.GetBytes(-1);
             NetStream.Write(Ping, 0, Ping.Length);
+        }
+
+        public Boolean IsPinging()
+        {
+            return Pinging;
         }
 
         // Deserialize a message
