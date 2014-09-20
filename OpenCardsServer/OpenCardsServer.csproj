@@ -82,6 +82,10 @@
       <Project>{23184529-e81b-4379-8054-664c4adf1621}</Project>
       <Name>Network</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OpenCards\OpenCards.csproj">
+      <Project>{4926186f-0a4d-4e46-bd35-6509d1c7d5a2}</Project>
+      <Name>OpenCards</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -10,7 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Network
 {
-    class Server
+    public class Server
     {
         private TcpListener ConnectionListenter;
         private Thread ListenerThread;

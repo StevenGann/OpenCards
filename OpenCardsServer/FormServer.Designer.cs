@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deckManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,23 +60,23 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.optionsToolStripMenuItem.Text = "Options";
-            // 
             // startServerToolStripMenuItem
             // 
             this.startServerToolStripMenuItem.Name = "startServerToolStripMenuItem";
-            this.startServerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.startServerToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.startServerToolStripMenuItem.Text = "Start Server";
             // 
             // deckManagerToolStripMenuItem
             // 
             this.deckManagerToolStripMenuItem.Name = "deckManagerToolStripMenuItem";
-            this.deckManagerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deckManagerToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.deckManagerToolStripMenuItem.Text = "Deck Manager";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.optionsToolStripMenuItem.Text = "Options";
             // 
             // textBox1
             // 
@@ -121,6 +123,7 @@
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
