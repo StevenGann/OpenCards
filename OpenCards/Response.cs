@@ -24,6 +24,29 @@ namespace OpenCards
             Size = Cards.Count;
         }
 
+        public override String ToString()
+        {
+            String result = "";
+
+            if (IsFromCzar)
+            {
+                result += "Response from Czar:\n";
+            }
+            else
+            {
+                result += "Response:\n";
+            }
+
+            foreach (Card card in Cards)
+            {
+                result += "White: \"";
+                result += card.Text;
+                result += "\"\n";
+            }
+
+            return result;
+        }
+
         public Panel Render(int width, int height)
         {
             Panel result = new Panel();

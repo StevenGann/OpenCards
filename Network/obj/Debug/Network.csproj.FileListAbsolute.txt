@@ -20,3 +20,5 @@ E:\GitHub\OpenCards\Network\obj\Debug\Network.dll
 E:\GitHub\OpenCards\Network\obj\Debug\Network.pdb
 E:\GitHub\OpenCards\Network\bin\Debug\OpenCards.dll
 E:\GitHub\OpenCards\Network\bin\Debug\OpenCards.pdb
+C:\Users\Administrator\Documents\GitHub\OpenCards\Network\bin\Debug\OpenCards.dll
+C:\Users\Administrator\Documents\GitHub\OpenCards\Network\bin\Debug\OpenCards.pdb

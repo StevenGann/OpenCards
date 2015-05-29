@@ -16,5 +16,19 @@ namespace OpenCards
 
         public GameStatus()
         { }
+
+        public String ToString()
+        {
+            String result = "================ Game Status ===============\n";
+
+            result += currentBlack.ToString();
+
+            foreach (Response response in Responses)
+            {
+                result += response.ToString();
+            }
+
+            return result;
+        }
     }
 }

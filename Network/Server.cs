@@ -85,7 +85,7 @@ namespace Network
                 ASCIIEncoding encoder = new ASCIIEncoding();
                 String newMessage = encoder.GetString(message, 0, bytesRead);
                 String sender = ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address.ToString();
-                sender += ":" + ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Port.ToString();
+                //sender += ":" + ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Port.ToString();
 
                 Message tempMessage = DeserializeMessageXML(newMessage, sender);
                 messageQueue.Enqueue(tempMessage);
@@ -137,23 +137,72 @@ namespace Network
                 return result;
 
             }
-            catch 
+            catch { }
+
+            try
             {
-                try
-                {
-                    var stringReader = new StringReader(message);
-                    var serializer = new XmlSerializer(typeof(Deck));
-                    Deck payload = serializer.Deserialize(stringReader) as Deck;
-                    result.Payload = payload;
-                    result.PayloadType = typeof(Deck);
-                    result.Sender = sender;
-                    return result;
+                var stringReader = new StringReader(message);
+                var serializer = new XmlSerializer(typeof(BlackCard));
+                BlackCard payload = serializer.Deserialize(stringReader) as BlackCard;
+                result.Payload = payload;
+                result.PayloadType = typeof(BlackCard);
+                result.Sender = sender;
+                return result;
 
-                }
-                catch { }
             }
+            catch { }
 
-            
+            try
+            {
+                var stringReader = new StringReader(message);
+                var serializer = new XmlSerializer(typeof(Deck));
+                Deck payload = serializer.Deserialize(stringReader) as Deck;
+                result.Payload = payload;
+                result.PayloadType = typeof(Deck);
+                result.Sender = sender;
+                return result;
+
+            }
+            catch { }
+
+            try
+            {
+                var stringReader = new StringReader(message);
+                var serializer = new XmlSerializer(typeof(Response));
+                Response payload = serializer.Deserialize(stringReader) as Response;
+                result.Payload = payload;
+                result.PayloadType = typeof(Response);
+                result.Sender = sender;
+                return result;
+
+            }
+            catch { }
+
+            try
+            {
+                var stringReader = new StringReader(message);
+                var serializer = new XmlSerializer(typeof(Player));
+                Player payload = serializer.Deserialize(stringReader) as Player;
+                result.Payload = payload;
+                result.PayloadType = typeof(Player);
+                result.Sender = sender;
+                return result;
+
+            }
+            catch { }
+
+            try
+            {
+                var stringReader = new StringReader(message);
+                var serializer = new XmlSerializer(typeof(GameStatus));
+                GameStatus payload = serializer.Deserialize(stringReader) as GameStatus;
+                result.Payload = payload;
+                result.PayloadType = typeof(GameStatus);
+                result.Sender = sender;
+                return result;
+
+            }
+            catch { }
 
             return result;
         }

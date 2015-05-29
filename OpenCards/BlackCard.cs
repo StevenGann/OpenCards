@@ -26,6 +26,19 @@ namespace OpenCards
             Blanks = blanks;
         }
 
+        public String ToString()
+        {
+            String result = "";
+
+            result += "Black: \"";
+            result += Text;
+            result += "\", ";
+            result += Convert.ToString(Blanks);
+            result += " blanks\n";
+
+            return result;
+        }
+
         //Render Card into a bitmap for displaying in the GUI
         public PictureBox Render(int width, int height)
         {

@@ -83,5 +83,27 @@ namespace OpenCards
             BlackCards.Clear();
         }
 
+        public String ToString()
+        {
+            String result = "";
+
+            foreach(Card whitecard in WhiteCards)
+            {
+                result += "White: \"";
+                result += whitecard.Text;
+                result += "\"\n";
+            }
+            foreach(BlackCard blackcard in BlackCards)
+            {
+                result += "Black: \"";
+                result += blackcard.Text;
+                result += "\", ";
+                result += Convert.ToString(blackcard.Blanks);
+                result += " blanks\n";
+            }
+
+            return result;
+        }
+
     }
 }

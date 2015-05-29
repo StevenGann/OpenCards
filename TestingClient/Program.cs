@@ -86,17 +86,27 @@ namespace TestingClient
             Console.WriteLine("Sending greeting\n");
             MyClient.SendMessage(MyClient);
 
-            Console.WriteLine("Sending some cards!\n");
+            Console.WriteLine("Sending 2 cards\n");
             MyClient.SendMessage(new Card("Test card #1"));
             MyClient.SendMessage(new Card("Test card #2"));
 
-            Console.WriteLine("Sending a deck!!\n");
+            Console.WriteLine("Sending 2 black cards\n");
+            MyClient.SendMessage(new BlackCard("Black ______ #1", 1));
+            MyClient.SendMessage(new BlackCard("______ ______ #2", 2));
+
+            Console.WriteLine("Sending a deck\n");
             Deck tempDeck = new Deck("TestingClient Deck");
             tempDeck.Add(new Card("Test deck card #1"));
             tempDeck.Add(new Card("Test deck card #2"));
             tempDeck.Add(new Card("Test deck card #3"));
             tempDeck.Add(new BlackCard("Testing a ______ card for _____.",2));
             MyClient.SendMessage(tempDeck);
+
+            Console.WriteLine("Sending a response\n");
+            Response tempResponse = new Response();
+            tempResponse.Add(new Card("Response test card #1"));
+            tempResponse.Add(new Card("Response test card #2"));
+            MyClient.SendMessage(tempResponse);
 
 
             Console.ReadLine();
