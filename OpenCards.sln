@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCardsServer", "OpenCardsServer\OpenCardsServer.csproj", "{08FC665F-8C54-4CA3-B063-58D8A8CA98E6}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Network", "Network\Network.
 	ProjectSection(ProjectDependencies) = postProject
 		{4926186F-0A4D-4E46-BD35-6509D1C7D5A2} = {4926186F-0A4D-4E46-BD35-6509D1C7D5A2}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingClient", "TestingClient\TestingClient.csproj", "{CA96B689-1E33-4B83-A35D-411264F13463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingServer", "TestingServer\TestingServer.csproj", "{64341759-9992-45A8-BE1B-1580ADCB00AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{23184529-E81B-4379-8054-664C4ADF1621}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23184529-E81B-4379-8054-664C4ADF1621}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23184529-E81B-4379-8054-664C4ADF1621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA96B689-1E33-4B83-A35D-411264F13463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA96B689-1E33-4B83-A35D-411264F13463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA96B689-1E33-4B83-A35D-411264F13463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA96B689-1E33-4B83-A35D-411264F13463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64341759-9992-45A8-BE1B-1580ADCB00AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64341759-9992-45A8-BE1B-1580ADCB00AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64341759-9992-45A8-BE1B-1580ADCB00AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64341759-9992-45A8-BE1B-1580ADCB00AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

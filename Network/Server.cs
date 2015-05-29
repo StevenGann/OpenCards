@@ -7,109 +7,155 @@ using System.Threading;
 using System.Net.Sockets;
 using System.Net;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
+using OpenCards;
 
 namespace Network
 {
     public class Server
     {
-        private TcpListener ConnectionListenter;
-        private Thread ListenerThread;
-        private List<Object> Messages = new List<Object>();
-        private List<TcpClient> Clients = new List<TcpClient>();
-        private List<TcpClient> LiveClients = new List<TcpClient>();
+        private TcpListener tcpListener;
+        private Thread listenThread;
+        private int port;
 
-        //Simple constructor that creates a listener then assigns that listener to a thread
-        public Server(IPAddress Address, int Port)
+        private Queue<Message> messageQueue = new Queue<Message>();
+
+        public Server(int serverport)
         {
-            this.ConnectionListenter = new TcpListener(Address, Port);
-            this.ListenerThread = new Thread(new ThreadStart(ListenForClients));
-            this.ListenerThread.Start();
+            port = serverport; ;
+            this.tcpListener = new TcpListener(IPAddress.Any, port);
+            this.listenThread = new Thread(new ThreadStart(ListenForClients));
+            this.listenThread.Start();
         }
-        
-        // Start listening for clients
-        // Is invoked in a thread by the constructor
+
         private void ListenForClients()
         {
-            this.ConnectionListenter.Start();
-
-            while(true)
-            {
-                TcpClient Client = this.ConnectionListenter.AcceptTcpClient();
-                Clients.Add(Client);
-                Thread ClientThread = new Thread(new ParameterizedThreadStart(ClientListener));
-            }
-        }
-
-        // Read the message from a connected client and adds it to the message list
-        // Messages are collected with GetMessage()
-        private void ClientListener(object client)
-        {
-            TcpClient Client = (TcpClient)client;
-            NetworkStream NetStream = Client.GetStream();
-            int BytesRead;
-            byte[] Message = new byte[2048];
-
+            this.tcpListener.Start();
             while (true)
             {
-                BytesRead = 0;
+                //blocks until a client has connected to the server
+                TcpClient client = this.tcpListener.AcceptTcpClient();
+                
+                //create a thread to handle communication 
+                //with connected client
+                Thread clientThread = new Thread(new ParameterizedThreadStart(HandleClientComm));
+                clientThread.Start(client);
+            }
+        }
+        private void HandleClientComm(object client)
+        {
+            TcpClient tcpClient = (TcpClient)client;
+            NetworkStream clientStream = tcpClient.GetStream();
+            
+            byte[] message = new byte[4096];
+            int bytesRead;
+            String str = "";
+            while (true)
+            {
+                bytesRead = 0;
 
                 try
                 {
-                    BytesRead = NetStream.Read(Message, 0, 2048);
+                    //blocks until a client sends a message
+                    bytesRead = clientStream.Read(message, 0, 4096);
+                    for (int i = 0; i < message.Length; i++)
+                    {
+                        if (message[i]!=0)
+                        {
+                            str += Convert.ToChar(message[i]);
+                        }
+                    }
+
                 }
                 catch
                 {
-                    break; // Socket error
+                    //a socket error has occured
+                    break;
                 }
 
-                if (BytesRead == 0)
+                if (bytesRead == 0)
                 {
-                    break; // Client disconnection
+                    //the client has disconnected from the server
+                    break;
+                }
+
+                
+
+                //message has successfully been received
+                ASCIIEncoding encoder = new ASCIIEncoding();
+                String newMessage = encoder.GetString(message, 0, bytesRead);
+                String sender = ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address.ToString();
+                sender += ":" + ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Port.ToString();
+
+                Message tempMessage = DeserializeMessageXML(newMessage, sender);
+                messageQueue.Enqueue(tempMessage);
+
+                if (tempMessage.Sender == "")
+                {
+                    Console.WriteLine("Got a bad message");
+                    Console.WriteLine(newMessage+"\n\n");
+                }
+                else
+                {
+                    Console.WriteLine("Got a message");
                 }
             }
 
-            Client.Close();
+            tcpClient.Close();
         }
-
-        // Send a message to the given client
-        public void sendMessage(Object Message, TcpClient Client)
+        
+        public Message GetNextMessage()
         {
-        }
-
-        // Get the most recent message
-        public Object GetMessage()
-        {
-            if (Messages.Count != 0)
+            try
             {
-                Object Message = Messages[0];
-                Messages.RemoveAt(0);
-                return Message;
+                return messageQueue.Dequeue();
             }
-            else
+            catch
             {
                 return null;
             }
         }
 
-        // Get the most recent connection
-        // Should be invoked whenever a player connection is found
-        public TcpClient GetConnectedPlayer()
+        public int GetMessageCount()
         {
-            if (Clients.Count != 0)
-            {
-                TcpClient Client = Clients[0];
-                Clients.RemoveAt(0);
-                return Client;
-            }
-            else
-            {
-                return null;
-            }
+            return messageQueue.Count;
         }
 
-        // Deserialize a message
-        private void DeserializeMessage(Byte[] Message)
+        public static Message DeserializeMessageXML(String message, String sender)
         {
+            
+            Message result = new Message();
+
+            try
+            {
+                var stringReader = new StringReader(message);
+                var serializer = new XmlSerializer(typeof(Card));
+                Card payload = serializer.Deserialize(stringReader) as Card;
+                result.Payload = payload;
+                result.PayloadType = typeof(Card);
+                result.Sender = sender;
+                return result;
+
+            }
+            catch 
+            {
+                try
+                {
+                    var stringReader = new StringReader(message);
+                    var serializer = new XmlSerializer(typeof(Deck));
+                    Deck payload = serializer.Deserialize(stringReader) as Deck;
+                    result.Payload = payload;
+                    result.PayloadType = typeof(Deck);
+                    result.Sender = sender;
+                    return result;
+
+                }
+                catch { }
+            }
+
+            
+
+            return result;
         }
     }
 }

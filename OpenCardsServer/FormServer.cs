@@ -29,7 +29,7 @@ namespace OpenCardsServer
             InitializeComponent();
 
             IP = IPAddress.Parse("localhost");
-            server = new Server(IP, Port);
+            server = new Server(Port);
 
             GameLoop();
         }

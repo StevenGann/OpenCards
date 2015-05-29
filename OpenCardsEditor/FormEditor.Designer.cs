@@ -94,10 +94,10 @@
             // DeckEditor
             // 
             this.DeckEditor.Controls.Add(this.splitContainer2);
-            this.DeckEditor.Location = new System.Drawing.Point(4, 23);
+            this.DeckEditor.Location = new System.Drawing.Point(4, 22);
             this.DeckEditor.Name = "DeckEditor";
             this.DeckEditor.Padding = new System.Windows.Forms.Padding(3);
-            this.DeckEditor.Size = new System.Drawing.Size(784, 522);
+            this.DeckEditor.Size = new System.Drawing.Size(784, 523);
             this.DeckEditor.TabIndex = 0;
             this.DeckEditor.Text = "Deck Editor";
             this.DeckEditor.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer1);
-            this.splitContainer2.Size = new System.Drawing.Size(778, 516);
+            this.splitContainer2.Size = new System.Drawing.Size(778, 517);
             this.splitContainer2.SplitterDistance = 80;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -232,7 +232,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(778, 432);
+            this.splitContainer1.Size = new System.Drawing.Size(778, 433);
             this.splitContainer1.SplitterDistance = 379;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -242,7 +242,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(375, 428);
+            this.groupBox1.Size = new System.Drawing.Size(375, 429);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "White Cards";
@@ -256,7 +256,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(369, 409);
+            this.dataGridView1.Size = new System.Drawing.Size(369, 410);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
@@ -272,7 +272,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(391, 428);
+            this.groupBox2.Size = new System.Drawing.Size(391, 429);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Black Cards";
@@ -286,7 +286,7 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 16);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(385, 409);
+            this.dataGridView2.Size = new System.Drawing.Size(385, 410);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellEndEdit);
             // 
@@ -309,10 +309,10 @@
             // DecksManager
             // 
             this.DecksManager.Controls.Add(this.dataGridView3);
-            this.DecksManager.Location = new System.Drawing.Point(4, 23);
+            this.DecksManager.Location = new System.Drawing.Point(4, 22);
             this.DecksManager.Name = "DecksManager";
             this.DecksManager.Padding = new System.Windows.Forms.Padding(3);
-            this.DecksManager.Size = new System.Drawing.Size(784, 522);
+            this.DecksManager.Size = new System.Drawing.Size(784, 523);
             this.DecksManager.TabIndex = 1;
             this.DecksManager.Text = "Decks Manager";
             this.DecksManager.UseVisualStyleBackColor = true;
@@ -328,7 +328,7 @@
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(3, 3);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(778, 516);
+            this.dataGridView3.Size = new System.Drawing.Size(778, 517);
             this.dataGridView3.TabIndex = 0;
             // 
             // NameColumn
@@ -380,8 +380,9 @@
             this.loadDeckToolStripMenuItem,
             this.addDeckToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // saveDeckToolStripMenuItem
             // 

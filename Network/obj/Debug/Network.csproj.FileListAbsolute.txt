@@ -13,3 +13,10 @@ F:\Git\OpenCards\Network\obj\Debug\Network.dll
 F:\Git\OpenCards\Network\obj\Debug\Network.pdb
 F:\Git\OpenCards\Network\bin\Debug\Network.dll
 F:\Git\OpenCards\Network\bin\Debug\Network.pdb
+E:\GitHub\OpenCards\Network\bin\Debug\Network.dll
+E:\GitHub\OpenCards\Network\bin\Debug\Network.pdb
+E:\GitHub\OpenCards\Network\obj\Debug\Network.csprojResolveAssemblyReference.cache
+E:\GitHub\OpenCards\Network\obj\Debug\Network.dll
+E:\GitHub\OpenCards\Network\obj\Debug\Network.pdb
+E:\GitHub\OpenCards\Network\bin\Debug\OpenCards.dll
+E:\GitHub\OpenCards\Network\bin\Debug\OpenCards.pdb

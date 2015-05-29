@@ -7,75 +7,84 @@ using System.Threading;
 using System.Net.Sockets;
 using System.Net;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.RegularExpressions;
+using System.Xml.Serialization;
 
 namespace Network
 {
+    [Serializable]
     public class Client
     {
-        private List<Object> Messages = new List<Object>();
-        private TcpClient Server;
-        private Thread ListenerThread;
+        public String ExternalIP;
+        [XmlIgnore] public String ServerIP;
+        public int ExternalPort;
+        private int ServerPort;
 
-        // Constructor to start the message listener in its own thread
-        public Client(IPAddress Address, int Port)
+        public Client()
         {
-            this.Server = new TcpClient(Address.ToString(), Port);
-            this.ListenerThread = new Thread(new ThreadStart(MessageListener));
-            this.ListenerThread.Start();
+            ServerPort = 3000;
+            ExternalIP = getExternalIp();
         }
 
-        // Read the message from a connected client and adds it to the message list
-        // Messages are collected with GetMessage()
-        private void MessageListener()
+        public Client(int port)
         {
-            NetworkStream NetStream = Server.GetStream();
-            int BytesRead;
-            byte[] Message = new byte[2048];
-
-            while (true)
-            {
-                BytesRead = 0;
-
-                try
-                {
-                    BytesRead = NetStream.Read(Message, 0, 2048);
-                }
-                catch
-                {
-                    break; // Socket error
-                }
-
-                if (BytesRead == 0)
-                {
-                    break; // Client disconnection
-                }
-            }
-            Server.Close();
+            ServerPort = port;
+            ExternalIP = getExternalIp();
         }
 
         // Send a message to the given client
-        public void sendMessage(Object Message)
+        public void SendMessage(Object obj)
         {
+            String s = "There has been an error";
+            s = SerializeObjectXML(obj);
+            TcpClient client = new TcpClient();
+
+
+            IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Parse(ServerIP), ServerPort);
+
+            client.Connect(serverEndPoint);
+
+            NetworkStream clientStream = client.GetStream();
+
+            ASCIIEncoding encoder = new ASCIIEncoding();
+            byte[] buffer = encoder.GetBytes(s);
+            //Console.WriteLine("Sent: " + s);
+            clientStream.Write(buffer, 0, buffer.Length);
+            clientStream.Flush();
         }
 
-        // Deserialize a message
-        private void DeserializeMessage(Byte[] Message)
+
+        //Utility methods
+        public static String SerializeObjectXML(Object obj)
         {
+            StringWriter stringwriter = new StringWriter();
+            XmlSerializer serializer = new XmlSerializer(obj.GetType());
+
+            try
+            {
+                serializer.Serialize(stringwriter, obj);
+                return stringwriter.ToString();
+            }
+            catch
+            {
+                //TODO: Add error catching code
+            }
+
+            return null;
         }
 
-        // Get the most recent message
-        public Object GetMessage()
+
+        private string getExternalIp()
         {
-            if (Messages.Count != 0)
+            try
             {
-                Object Message = Messages[0];
-                Messages.RemoveAt(0);
-                return Message;
+                string externalIP;
+                externalIP = (new WebClient()).DownloadString("http://checkip.dyndns.org/");
+                externalIP = (new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"))
+                             .Matches(externalIP)[0].ToString();
+                return externalIP;
             }
-            else
-            {
-                return null;
-            }
+            catch { return null; }
         }
     }
 }

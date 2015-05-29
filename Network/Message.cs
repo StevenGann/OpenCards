@@ -7,28 +7,17 @@ using System.Net.Sockets;
 
 namespace Network
 {
-    class Message
+    public class Message
     {
-        private string    objectType;
-        private object    message;
-        private string    timeSent;
-        private string    timeReceived;
-        public  TcpClient recipient;
-        public  int       ping;
-
+        public Object Payload;
+        public Type PayloadType;
+        public String Sender;
 
         public Message()
-        { }
-
-        public Message(TcpClient recip, string type, object msg)
         {
-            recipient = recip;
-            objectType = type;
-            message = msg;
+            Payload = "";
+            PayloadType = typeof(String);
+            Sender = "";
         }
-
-        public void setObjectType(string type)    { objectType = type; }
-        public void setMessage(object msg)        { message = msg; }
-        //public void setTimeSent();
     }
 }
