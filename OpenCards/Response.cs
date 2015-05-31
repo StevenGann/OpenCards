@@ -14,6 +14,7 @@ namespace OpenCards
         public int Size = 0;
         public List<Card> Cards = new List<Card>();
         public bool IsFromCzar = false;
+        public Player Sender;
 
         public Response()
         { }

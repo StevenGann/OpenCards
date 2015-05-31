@@ -17,6 +17,7 @@ namespace OpenCards
         public List<Card> WhiteCards = new List<Card>();
         public List<BlackCard> BlackCards = new List<BlackCard>();
         public List<String> MergedTitles = new List<String>();
+        public Player Sender;
         
         public Deck()
         { }
@@ -83,7 +84,7 @@ namespace OpenCards
             BlackCards.Clear();
         }
 
-        public String ToString()
+        public override String ToString()
         {
             String result = "";
 

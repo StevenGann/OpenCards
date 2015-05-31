@@ -85,7 +85,7 @@ namespace Network
                 ASCIIEncoding encoder = new ASCIIEncoding();
                 String newMessage = encoder.GetString(message, 0, bytesRead);
                 String sender = ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address.ToString();
-                //sender += ":" + ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Port.ToString();
+                sender += ":" + ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Port.ToString();
 
                 Message tempMessage = DeserializeMessageXML(newMessage, sender);
                 messageQueue.Enqueue(tempMessage);

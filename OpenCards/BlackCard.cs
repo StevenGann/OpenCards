@@ -26,7 +26,7 @@ namespace OpenCards
             Blanks = blanks;
         }
 
-        public String ToString()
+        public override String ToString()
         {
             String result = "";
 
@@ -34,7 +34,14 @@ namespace OpenCards
             result += Text;
             result += "\", ";
             result += Convert.ToString(Blanks);
-            result += " blanks\n";
+            if (Blanks != 1)
+            {
+                result += " blanks";
+            }
+            else
+            {
+                result += " blank";
+            }
 
             return result;
         }

@@ -35,14 +35,22 @@ namespace Network
         // Send a message to the given client
         public void SendMessage(Object obj)
         {
-            String s = "There has been an error";
+            String s = "";
             s = SerializeObjectXML(obj);
             TcpClient client = new TcpClient();
 
 
             IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Parse(ServerIP), ServerPort);
 
-            client.Connect(serverEndPoint);
+            try
+            {
+                client.Connect(serverEndPoint);
+            }
+            catch 
+            {
+                Console.WriteLine("Failed to connect.");
+                return;
+            }
 
             NetworkStream clientStream = client.GetStream();
 

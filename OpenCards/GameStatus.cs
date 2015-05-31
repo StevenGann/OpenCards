@@ -17,16 +17,30 @@ namespace OpenCards
         public GameStatus()
         { }
 
-        public String ToString()
+        public override String ToString()
         {
             String result = "================ Game Status ===============\n";
 
             result += currentBlack.ToString();
+            result += "\n--------------------------------------------\n";
 
             foreach (Response response in Responses)
             {
                 result += response.ToString();
             }
+
+            result += "\n--------------------------------------------\n";
+
+            //Players.Sort();
+            Players.Sort((x, y) => y.Score.CompareTo(x.Score));
+
+            foreach (Player player in Players)
+            {
+                result += player.ToString();
+                result += "\n";
+            }
+
+
 
             return result;
         }
